@@ -6,7 +6,15 @@ By the end of the project, the two functions would be fulfilled:
 1. Allow user to register/log in/log off to the application
 2. Allow different users to CRUD talent's data
 
+
+
+
+
 ![User Permission](https://i.imgur.com/KvFoIHM.png)
+
+
+
+
 
 The tasks required to support the two functions are as follow.
 
@@ -41,3 +49,7 @@ Task 8 - System Diagram
 Others
 - [ ] Authenticate user before accessing the Saas app using AWS Cognito
 - [ ] TBD
+
+
+
+Developed by Jiang Lei, Franky, Lim Zi Yun, Jorin
