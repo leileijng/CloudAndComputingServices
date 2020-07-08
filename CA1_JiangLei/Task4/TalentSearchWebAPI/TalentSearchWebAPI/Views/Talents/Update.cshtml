@@ -1,0 +1,293 @@
+﻿
+@{
+    ViewBag.Title = "Update";
+}
+
+<br />
+<br />
+<div class="container">
+    <div class="col-md-offset-2 col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title">Update Talent Record</div>
+            </div>
+            <div class="panel-body">
+                <form id="dataForm" role="form" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="TalentNameInput">Name</label>
+                        <div class="col-md-5">
+                            <input type="text" id="TalentNameInput" name="TalentNameInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="TalentShortNameInput">Short Name</label>
+                        <div class="col-md-5">
+                            <input type="text" id="TalentShortNameInput" name="TalentShortNameInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="TalentReknownInput">Rekown</label>
+                        <div class="col-md-5">
+                            <input type="text" id="TalentReknownInput" name="TalentReknownInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="TalentBioInput">Bio</label>
+                        <div class="col-md-5">
+                            <textarea id="TalentBioInput" name="TalentBioInput" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-12">
+                        <label class="control-label col-md-1"></label>
+                        <div class="col-md-10">
+                            <div class="pull-right">
+                                <input type="button" class="btn btn-danger" value="Delete" id="deleteButton" />
+                                <input type="button" class="btn btn-success" value="Save" id="saveButton" />
+                                <a class="btn btn-default" href="/Talents/Manage">Back</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div id="SuccessDeleteModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Successful</h4>
+                            </div>
+                            <div class="modal-body">
+                                <h2>the Talent record is deleted successfully</h2>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" id="btnClose" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="SuccessSaveModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Successful</h4>
+                            </div>
+                            <div class="modal-body">
+                                <h2>the Talent record is updated successfully</h2>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" id="btnClose2" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="divError" class="alert alert-danger collapse">
+                    <a id="linkClose" class="close" href="#">&times;</a>
+                    <div id="divErrorText">
+
+                    </div>
+                </div>
+            </div><!-- end of div element which has the class="panel-body" -->
+        </div><!-- end of the div element which has the class="panel" -->
+    </div><!-- end of the div element which has class="col-md-offset-2 col-md-8" -->
+</div><!-- end of div element which has the class="container" -->
+
+
+@section Scripts {
+    <script>
+/*
+        jQuery.validator.setDefaults({
+            highlight: function (element, errorClass, validClass) {
+                if (element.type === "radio") {
+                    this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+                } else {
+                    $(element).closest('.form-group').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+                    $(element).closest('.form-group').find('i.fa').remove();
+                    $(element).closest('.form-group').append('<i class="fa fa-exclamation fa-lg form-control-feedback"></i>');
+                }
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                if (element.type === "radio") {
+                    this.findByName(element.name).removeClass(errorClass).addClass(validClass);
+                } else {
+                    $(element).closest('.form-group').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+                    $(element).closest('.form-group').find('i.fa').remove();
+                    $(element).closest('.form-group').append('<i class="fa fa-check fa-lg form-control-feedback"></i>');
+                }
+            }
+        });
+        setupFormValidationRules();
+
+        function setupFormValidationRules() {
+            jQuery.validator.addMethod("checkName", function (value, element) {
+                return this.optional(element) || $.trim(value) != '' && (value.match(/^[a-zA-Z\s]+$/));
+            }, 'Please specify the correct Name');
+
+            $('#dataForm').validate({
+                rules: {
+                    TalentNameInput: {
+                        required: true,
+                        checkName: true,
+                    },
+                    TalentShortNameInput: {
+                        required: true,
+                        checkName: true,
+                    },
+                    TalentReknownInput: {
+                        required: true
+
+                    },
+                    TalentBioInput: {
+                        required: true
+                    },
+                },
+                messages: {
+                    TalentNameInput: {
+                        required: 'Please enter Talent name',
+                        checkName: 'Please specify the correct Name'
+                    },
+                    TalentShortNameInput: {
+                        required: 'Please enter Talent short name',
+                        checkName: 'Please specify the correct Name'
+                    },
+                    TalentReknwnInput: {
+                        required: 'Please enter Talent reknown',
+
+                    },
+                    TalentBioInput: {
+                        required: 'Please enter Talent bio',
+
+                    }
+
+                }
+            });
+        }
+        */
+        //Declare a document scope variable, g_talentId.
+        //This variable will contain the numeric student id value
+        //which will be extracted from the address bar.
+        var loadedTalentName;
+        var loadedTalentShortName;
+        var loadedTalentReknown;
+        var loadedTalentBio;
+        var g_talentId = getIdFromAddressBar();
+
+        function getIdFromAddressBar() {
+            var urlArray = window.location.href.split('/');
+            var id = urlArray[urlArray.length - 1];
+            return id;
+        };
+
+        $loadTalentHandler = jQuery.ajax({
+            type: 'GET',
+            url: '/API/Talents/' + g_talentId,
+        })
+        $loadTalentHandler.done(function (data, textStatus, jqXHR) {
+
+            console.log(data);
+
+            var talent = data;
+
+            loadedTalentName = talent.Name;
+            loadedTalentShortName = talent.ShortName;
+            loadedTalentReknown = talent.Reknown;
+            loadedTalentBio = talent.Bio;
+
+            //Populate the respective input controls with the talent details.
+
+            $('#TalentNameInput').val(loadedTalentName);
+            $('#TalentShortNameInput').val(loadedTalentShortName);
+            $('#TalentReknownInput').val(loadedTalentReknown);
+            $('#TalentBioInput').val(loadedTalentBio);
+
+
+
+
+        }//end of JavaScript anonymous function
+
+        )//end of the done() method;
+
+
+        function WebFormData(inName, inShortName, inReknown, inBio) {
+            this.Name = inName;
+            this.ShortName = inShortName;
+            this.Reknown = inReknown;
+            this.Bio = inBio;
+        }
+        $('#linkClose').click(function () {
+            $('#divError').hide('fade');
+        });
+        $('#deleteButton').on('click', function () {
+            $deleteTalentHandler = jQuery.ajax({
+                type: 'DELETE',
+                url: '/API/Talents/' + g_talentId
+            })//end of jQuery.ajax() call
+            $deleteTalentHandler.done(function () {
+                $('#SuccessDeleteModal').modal('show');
+            });
+
+            $deleteTalentHandler.fail(function (jqXHR, textStatus) {
+                console.log(textStatus);
+                console.log(jqXHR.responseText);
+                $('#divErrorText').text(jqXHR.responseText);
+                $('#divError').show();
+            });
+
+        });////end of $('#deleteButton').on('click', anonymous function)
+
+        $('#btnClose').click(function () {
+            location.replace('/Talents/Manage');
+        });
+
+        $('#btnClose2').click(function () {
+            location.replace('/Talents/Manage');
+        });
+
+        $('#saveButton').on('click', function () {
+
+            //$('#dataForm').validate();
+            //if ($("#dataForm").valid()) {
+
+                var collectedTalentName = $('#TalentNameInput').val();
+                var collectedTalentShortName = $('#TalentShortNameInput').val();
+                var collectedTalentRekown = $('#TalentReknownInput').val();
+                var collectedTalentBio = $('#TalentBioInput').val();
+
+                var webFormData = new WebFormData(collectedTalentName, collectedTalentShortName, collectedTalentRekown, collectedTalentBio);
+                var webFormDataInString = JSON.stringify(webFormData);
+
+                $updateTalentHandler = jQuery.ajax({
+                    type: 'PUT',
+                    url: '/API/talents/' + g_talentId,
+                    contentType: 'application/json',
+                    data: webFormDataInString
+                })
+
+                $updateTalentHandler.done(function (textStatus, jqXHR) {
+                    $('#SuccessSaveModal').modal('show');
+                });
+
+                $updateTalentHandler.fail(function (jqXHR, textStatus) {
+                    console.log(textStatus);
+                    console.log(jqXHR.responseText);
+                    $('#divErrorText').text(jqXHR.responseText);
+                    $('#divError').show();
+                });
+
+         //   }//end of $('#dataForm').valid()
+        });//end of $('#saveButton').on('click', anonymous function)
+
+
+    </script>
+
+}

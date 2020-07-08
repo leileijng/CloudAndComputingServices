@@ -1,0 +1,312 @@
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\ApplicationInsights.config
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Talents_AWS.dll.config
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Talents_AWS.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Talents_AWS.pdb
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Antlr3.Runtime.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.AI.Web.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Newtonsoft.Json.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Net.Http.Formatting.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Cors.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Helpers.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Http.Cors.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Http.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Http.WebHost.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Mvc.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Optimization.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Razor.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.Razor.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\WebGrease.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Net.Http.Formatting.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Http.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Http.Cors.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Newtonsoft.Json.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Helpers.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Http.WebHost.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Mvc.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Optimization.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.Razor.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.Razor.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Antlr3.Runtime.pdb
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.AI.Web.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.csprojAssemblyReference.cache
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.csproj.CoreCompileInputs.cache
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.csproj.CopyComplete
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.pdb
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\csc.exe
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\csc.exe.config
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\csc.rsp
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\csi.exe
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\csi.exe.config
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\csi.rsp
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.AppContext.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Console.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.Compression.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Claims.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Threading.Thread.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.ValueTuple.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\vbc.exe
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\vbc.exe.config
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\vbc.rsp
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\VBCSCompiler.exe
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\AWSSDK.dll
+C:\Users\Vanesssa Jiang Lei\Downloads\CSC-Assignment-2\Talents_AWS\Talents_AWS\bin\AWSSDK.pdb
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\ApplicationInsights.config
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Talents_AWS.dll.config
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Talents_AWS.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Talents_AWS.pdb
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\csc.exe
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\csc.exe.config
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\csc.rsp
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\csi.exe
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\csi.exe.config
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\csi.rsp
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.AppContext.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Console.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.Compression.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Claims.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Threading.Thread.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.ValueTuple.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\vbc.exe
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\vbc.exe.config
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\vbc.rsp
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\VBCSCompiler.exe
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Antlr3.Runtime.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\AWSSDK.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.Web.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Newtonsoft.Json.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Net.Http.Formatting.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Cors.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Helpers.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Http.Cors.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Http.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Http.WebHost.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Mvc.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Optimization.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Razor.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.Razor.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\WebGrease.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\AWSSDK.pdb
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Net.Http.Formatting.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Http.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Http.Cors.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Newtonsoft.Json.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Helpers.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Http.WebHost.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Mvc.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Optimization.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Razor.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.Razor.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Antlr3.Runtime.pdb
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.Web.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.csprojAssemblyReference.cache
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.csproj.CoreCompileInputs.cache
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.csproj.CopyComplete
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.dll
+C:\Users\Vanesssa Jiang Lei\Desktop\CSC\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.pdb
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\ApplicationInsights.config
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Talents_AWS.dll.config
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Talents_AWS.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Talents_AWS.pdb
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\csc.exe
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\csc.exe.config
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\csc.rsp
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\csi.exe
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\csi.exe.config
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\csi.rsp
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.AppContext.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Collections.Immutable.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Console.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Diagnostics.Process.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.Compression.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.FileSystem.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.IO.Pipes.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Reflection.Metadata.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.AccessControl.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Claims.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Security.Principal.Windows.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Threading.Thread.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.ValueTuple.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Xml.XmlDocument.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Xml.XPath.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\vbc.exe
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\vbc.exe.config
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\vbc.rsp
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\VBCSCompiler.exe
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\roslyn\VBCSCompiler.exe.config
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Antlr3.Runtime.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\AWSSDK.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.Agent.Intercept.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.DependencyCollector.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.Web.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.WindowsServer.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.ApplicationInsights.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.Web.Infrastructure.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Newtonsoft.Json.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Diagnostics.DiagnosticSource.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Net.Http.Formatting.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Cors.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Helpers.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Http.Cors.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Http.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Http.WebHost.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Mvc.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Optimization.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Razor.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.Deployment.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.Razor.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\WebGrease.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\AWSSDK.pdb
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Net.Http.Formatting.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Http.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Http.Cors.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Newtonsoft.Json.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Helpers.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Http.WebHost.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Mvc.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Optimization.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.Razor.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.Deployment.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Web.WebPages.Razor.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Antlr3.Runtime.pdb
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\System.Diagnostics.DiagnosticSource.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.DependencyCollector.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.WindowsServer.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.AI.Web.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.csprojAssemblyReference.cache
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.csproj.CoreCompileInputs.cache
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.csproj.CopyComplete
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.dll
+D:\CSC\1\CloudAndServiceComputingCA1\Task5\Talents_AWS\Talents_AWS\obj\Debug\Talents_AWS.pdb

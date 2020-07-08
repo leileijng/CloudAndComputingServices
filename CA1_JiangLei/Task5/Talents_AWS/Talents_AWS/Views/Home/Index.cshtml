@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <link href="~/Content/mystyle.css" rel="stylesheet" />
+    <script src="~/Scripts/script.js"></script>
+    <script src="https://kit.fontawesome.com/941fd9859a.js" crossorigin="anonymous"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+    <div id="searcharea">
+        <label for="search">live search</label>
+        <p>Enter the name or info about a speaker</p>
+        <input type="search" name="search" id="search" placeholder="name or info" />
+        <div style="text-align:center">
+            <input id="byName" style="width:auto" type="checkbox" checked>Search by name
+            <input id="byBio" style="width:auto" type="checkbox" checked>Search by bio
+        </div>
+    </div>
+    <div id="update"></div>
+    <div id="mask" class="mask">
+        <div id="loading" style="padding:100px; text-align:center; color:white"><p>
+        <i class="fa fa-spinner fa-spin fa-10x" style="margin-right:5px;"></i></p>
+        <h3>Uploading to S3...</h3>
+            </div>
+    </div>
+</body>
+</html>
+<style>
+    .loading{
+        z-index: 3;
+    }
+    div.mask {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4);
+        display:none;
+    }
+
+    .talentPhoto:hover{
+        cursor: pointer;
+    }
+    .talentPhoto{
+        width: 150px !important;
+    }
+    .imgContainer {
+        position: relative;
+    }
+
+    .uploadImgbutton {
+        position: absolute;
+        width: 150px;
+        left: 0;
+        top: 100px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity .35s ease;
+        padding: 10px;
+        background-color: rgba(71, 143, 225, 0.8);
+    }
+
+        .uploadImgbutton a {
+            width: 140px;
+            text-align: center;
+            color: white;
+            z-index: 4;
+            font-size: 1.9rem;
+            margin: 5px 2px;
+        }
+
+    .imgContainer:hover .uploadImgbutton {
+        opacity: 1;
+    }
+
+</style>
+
+<script type="text/javascript">
+    $('#search').keyup(function () {
+        //get data from json file
+        var urlForJson = "/Content/data.json";
+        
+        //get data from Restful web Service in development environment
+        //var urlForJson = "http://localhost:9000/api/talents";
+
+        //get data from Restful web Service in production environment
+        //var urlForJson= "http://csc123.azurewebsites.net/api/talents";
+
+        //Url for the Cloud image hosting
+        //https://res.cloudinary.com/dwkibjxo5/image/upload/v1592819729/Jonathan_Ferrar_tn.jpg
+
+        //jiang lei's cloudinary
+        var urlForCloudImage = "https://res.cloudinary.com/dwkibjxo5/image/upload/v1592819729/";
+        var checkByName = false;
+        if ($('#byName').is(":checked")) {
+            checkByName = true;
+        }
+        var checkByBio = false;
+        if ($('#byBio').is(":checked")) {
+            checkByBio = true;
+        }
+
+        var searchField = $('#search').val();
+        var myExp = new RegExp(searchField, "i");
+        console.log(checkByBio);
+        $.getJSON(urlForJson, function (data) {
+            var output = '<ul class="searchresults">';
+            if (checkByBio && checkByName) {
+                $.each(data, function (key, val) {
+                    //for debug
+                    if ((val.Name.search(myExp) != -1) ||
+                        (val.Bio.search(myExp) != -1)) {
+                        output += '<li>';
+                        output += '<h2><p>' + val.Name + `</p><p style="font-size:1.2rem; color:grey; display:none;" id="dl${val.ShortName}_tn">Download at: <a id="${val.ShortName}_tn">das</a></p></h2>`;
+                        //get the absolute path for local image
+                        //output += '<img src="images/'+ val.ShortName +'_tn.jpg" alt="'+ val.Name +'" />';
+
+                        //get the image from cloud hosting
+                        output += '<div class="imgContainer"><img  class="talentPhoto" src=' + urlForCloudImage + val.ShortName + "_tn.jpg alt=" + val.Name + '" />';
+                        output += `<div class="uploadImgbutton"><a href="#" onclick="uploadImgToS3('${urlForCloudImage}${val.ShortName}_tn.jpg')"> Upload to S3 </a></div></div>`;
+                        output += '<p>' + val.Bio + '</p>';
+                        output += '</li>';
+                    }
+                });
+            } else if (checkByBio) {
+                $.each(data, function (key, val) {
+                    //for debug
+                    console.log(data);
+                    if (val.Bio.search(myExp) != -1) {
+                        output += '<li>';
+                        output += '<h2><p>' + val.Name + `</p><p style="font-size:1.2rem; color:grey; display:none;" id="dl${val.ShortName}_tn">Download at: <a id="${val.ShortName}_tn"></a></p></h2>`;
+                        //get the absolute path for local image
+                        //output += '<img src="images/'+ val.ShortName +'_tn.jpg" alt="'+ val.Name +'" />';
+
+                        //get the image from cloud hosting
+                        output += '<div class="imgContainer"><img  class="talentPhoto" src=' + urlForCloudImage + val.ShortName + "_tn.jpg alt=" + val.Name + '" />';
+                        output += `<div class="uploadImgbutton"><a href="#" onclick="uploadImgToS3('${urlForCloudImage}${val.ShortName}_tn.jpg')"> Upload to S3 </a></div></div>`;
+                        output += '<p>' + val.Bio + '</p>';
+                        output += '</li>';
+                    }
+                });
+            } else if (checkByName) {
+                $.each(data, function (key, val) {
+                    //for debug
+                    console.log(data);
+                    if (val.Name.search(myExp) != -1) {
+                        output += '<li>';
+                        output += '<h2><p>' + val.Name + `</p><p style="font-size:1.2rem; color:grey; display:none;" id="dl${val.ShortName}_tn">Download at: <a id="${val.ShortName}_tn"></a></p></h2>`;
+                        //get the absolute path for local image
+                        //output += '<img src="images/'+ val.ShortName +'_tn.jpg" alt="'+ val.Name +'" />';
+
+                        //get the image from cloud hosting
+                        output += '<div class="imgContainer"><img  class="talentPhoto" src=' + urlForCloudImage + val.ShortName + "_tn.jpg alt=" + val.Name + '" />';
+                        output += `<div class="uploadImgbutton"><a href="#" onclick='uploadImgToS3("${urlForCloudImage}${val.ShortName}_tn.jpg")'> Upload to S3 </a></div></div>`;
+                        output += '<p>' + val.Bio + '</p>';
+                        output += '</li>';
+                    }
+                });
+            }
+
+            output += '</ul>';
+            $('#update').html(output);
+        }); //get JSON
+    });
+</script>
+
+<script>
+    //Bucket Configurations
+    var bucketName = 'talentsbucketcscca1';
+    var bucketRegion = 'us-east-1';
+    var IdentityPoolId = "us-east-1:ab708cf6-5538-4386-a774-442b0702b31f";
+
+    AWS.config.update({
+        region: bucketRegion,
+        credentials: new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: IdentityPoolId
+        })
+    });
+
+    var s3 = new AWS.S3({
+        apiVersion: '2006-03-01',
+        params: { Bucket: bucketName }
+    });
+
+    function uploadImgToS3(file) {
+        console.log(file);
+        $('.mask').css("display", "block");
+        var fileName = file.substring(file.lastIndexOf("/") + 1, file.length);
+        var s3 = new AWS.S3({
+            params: { Bucket: 'talentsbucketcscca1' }
+        });
+        /*
+        //var file = document.getElementById('file').files[0];
+        //var file = "https://res.cloudinary.com/dwkibjxo5/image/upload/v1592819729/Barot_Bellingham_tn.jpg";
+        //var fileName = file.name;
+        //var fileName = "Barot_Bellingham_tn.jpg";
+        */
+        var filePath = 'task5/' + fileName;
+        //var fileUrl = 'https://' + bucketRegion + '.amazonaws.com/computingService/' + filePath;
+
+        if (file) {
+            s3.upload({
+                Key: filePath,
+                Body: file,
+                ACL: "public-read"
+            },
+                function (err, data) {
+                    if (data !== null) {
+                        getShortUrl(data.Location, fileName);
+                    }
+                    else {
+                        console.log(err);
+                        alert("Upload failed!");
+                    }
+                }).on('httpUploadProgress', function (progress) {
+                    var uploaded = parseInt((progress.loaded * 100) / progress.total);
+                    $("progress").attr('value', uploaded);
+                });;
+        }
+        
+    }
+
+    function getShortUrl(url, fileName) {
+        var accessToken = "40c11d6f9b66e2afbb5a73901cb93b63077f2feb";
+        var params = {
+            "long_url": url
+        };
+
+        var idname = fileName.split('.');
+        var idName = idname[0];
+        $.ajax({
+            url: "https://api-ssl.bitly.com/v4/shorten",
+            cache: false,
+            dataType: "json",
+            method: "POST",
+            contentType: "application/json",
+            tryCount: 0,
+            retryLimit: 3,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+                $('#loadingtext').text("Getting short download link now...");
+            },
+            data: JSON.stringify(params),
+            error: function (xhr, textStatus, errorThrown) {
+                console.log(textStatus);
+                if (textStatus == 'error') {
+                    this.tryCount++;
+                    if (this.tryCount <= this.retryLimit) {
+                        //try again
+                        $.ajax(this);
+                        return;
+                    }
+                    return;
+                }
+            }
+        }).done(function (data) {
+            $('.mask').css("display", "none");
+            $(`#dl${idName}`).css("display", "block");
+            $(`#${idName}`).attr("href", data.link);
+            $(`#${idName}`).text(data.link);
+            alert("Uploaded Successfully!");
+            })
+            .fail(function () {
+                $('.mask').css("display", "none");
+                alert("Get short link failed!");
+            }
+        );
+    }
+
+    
+</script>
