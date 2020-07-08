@@ -1,4 +1,5 @@
 # CSC Assignment 2
+<pre>
 Second Assignment of CSC
 
 The objectives of this assignment are to create The Life Time Talents (TLTT) Saas web application.
@@ -8,11 +9,7 @@ By the end of the project, the two functions would be fulfilled:
 
 
 
-
-
 ![User Permission](https://i.imgur.com/KvFoIHM.png)
-
-
 
 
 
@@ -53,3 +50,4 @@ Others
 
 
 Developed by Jiang Lei, Franky, Lim Zi Yun, Jorin
+</pre>
