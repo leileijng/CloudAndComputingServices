@@ -1,0 +1,653 @@
+﻿
+@{
+    ViewBag.Title = "Task 2";
+}
+
+<!-- Delete Modal -->
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header modal-header-delete">
+                <h4 class="modal-title" id="exampleModalLabel">Delete Item</h4>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="icon-box">
+                <i class="m-r-10 mdi mdi-close"></i>
+            </div>
+            <h4 style="margin-left:15px;margin-top:15px;" class="modal-title">Are you sure?</h4>
+            <div class="modal-body">
+                <p id="deleteRec"></p>
+                <input type="hidden" id="deleteId" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                <button onclick="deleteProduct()" type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="test" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header modal-header-delete">
+                <h5 class="modal-title" id="exampleModalLabel" style="color:white;">Cancel Order</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <h4 class="modal-title">Are you sure?</h4>
+            <div class="modal-body">
+                <p>Do you really want to cancel this order?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Item</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="addModalForm">
+                    <div class="form-group col-md-12">
+                        <label for="addNameInp" class="font-small font-weight-medium">
+                            Item Name <span class="compulsoryInput d-inline"> *</span>
+                        </label>
+                        <input type="text" id="addNameInp" name="addNameInp" class="form-control" placeholder="Please key in item name" />
+                        <span></span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="addCatInp" class="font-small font-weight-medium">
+                            Category <span class="compulsoryInput d-inline"> *</span>
+                        </label>
+                        <input type="text" id="addCatInp" name="addCatInp" class="form-control" placeholder="Please key in category" />
+                        <span></span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="addPriceInp" class="font-small font-weight-medium">
+                            Price <span class="compulsoryInput d-inline"> *</span>
+                        </label>
+                        <input type="text" id="addPriceInp" name="addPriceInp" class="form-control" placeholder="$ e.g. 25.00" />
+                        <span></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="reset" class="btn btn-grey">Clear</button>
+                <button type="button" onclick="addProduct();" class="btn btn-primary" id="addSubmitBtn">Add Item</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Edit Item</h3>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="editModalForm">
+                    <div>
+                        <div class="form-group col-md-12">
+                            <label for="ItemNameInp" class="font-small font-weight-medium">
+                                Item Name <span class="compulsoryInput d-inline"> *</span>
+                            </label>
+                            <input type="text" id="ItemNameInp" name="ItemNameInp" class="form-control" placeholder="Please key in item name" />
+                            <span></span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="catNameInp" class="font-small font-weight-medium">
+                                Category <span class="compulsoryInput d-inline"> *</span>
+                            </label>
+                            <input type="text" id="catNameInp" name="catNameInp" class="form-control" placeholder="Please key in category" />
+                            <span></span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="priceNameInp" class="font-small font-weight-medium">
+                                Price <span class="compulsoryInput d-inline"> </span>
+                            </label>
+                            <input type="text" id="priceNameInp" name="priceNameInp" class="form-control" placeholder="$ e.g. 25.00" />
+                            <span></span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="idInp" />
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-grey">Reset</button>
+                        <button type="button" onclick="updateProduct()" class="btn btn-primary" id="SubmitBtn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-3 col-md-3" style="margin-top:20px;margin-right:26%;flex:1;">
+    <div class="add">
+        <button href="#exampleModal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Add New Item
+        </button>
+    </div>
+</div>
+<div>
+    <div id="snackbar">Retrying...</div>
+</div>
+<div class="container">
+    <br />
+    <div style="width:100%; margin:0 auto;">
+        <table id="ptable" class="table table-striped table-bordered dt-responsive crud" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody class="product" />
+        </table>
+    </div>
+</div>
+<div class="byCat">
+    <select id="categoryInput">
+        <option disabled selected> -- select an option -- </option>
+        <option>Toys</option>
+        <option>Groceries</option>
+        <option>Hardware</option>
+    </select>
+</div>
+<div class="container">
+    <br />
+    <div style="width:100%; margin:0 auto;">
+        <table id="cattable" class="table table-striped table-bordered dt-responsive" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody class="catproduct" />
+        </table>
+    </div>
+</div>
+<style>
+    form .error {
+        color: #ff0000;
+    }
+
+    #categoryInput {
+        margin-left: 15px;
+    }
+
+    #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        top: 70px;
+        font-size: 17px;
+    }
+
+</style>
+<script>
+    var checkid;
+    //Loading the tables with data
+    loadProducts()
+    function loadProducts() {
+        $.ajax({
+            type: "GET",
+            url: "/api/products",
+            dataType: "json",
+            success: function (data) {
+                document.getElementById('snackbar').style.visibility = "hidden";
+                console.log(data);
+                if ($("table.crud").length) {
+                    $(document).ready(function () {
+                        var table = $('table.crud').DataTable({
+                            lengthChange: false,
+                            buttons: ['copy', 'excel', 'pdf', 'print', 'colvis']
+                        });
+                        table.buttons().container()
+                            .appendTo('#example_wrapper .col-md-6:eq(0)');
+                    });
+                }
+                $('.product').html('');//Clear the <tbody> element first
+                if (data != null || data.length > 0) {
+                    for (let x = 0; x < data.length; x++) {
+                        let record = data[x];
+                        checkid = record.Id;
+                        let $cellElement = null;
+                        let $rowElement = $(`<tr id="${record.Id}"></tr>`);
+                        $cellElement = $(`<td id="id${record.Id}">${record.Id}</td>`);
+                        $rowElement.append($cellElement);
+                        $cellElement = $(`<td id="name${record.Id}">${record.Name}</td>`);
+                        $rowElement.append($cellElement);
+                        $cellElement = $(`<td id="cat${record.Id}">${record.Category}</td>`);
+                        $rowElement.append($cellElement);
+                        $cellElement = $(`<td id="price${record.Id}">&#36; ${record.Price.toFixed(2)}</td>`);
+                        $rowElement.append($cellElement);
+                        $cellElement = $(`<td id="edit${record.Id}"><a onclick="loadEdit('${record.Id}')" href="#editModal" data-toggle="modal" class="edit"><i class="fa fa-edit"></i></a></td>`);
+                        $rowElement.append($cellElement);
+                        $cellElement = $(`<td id="delete${record.Id}"><a href="#myModal" onclick="loadDelete('${record.Id}')" class="trigger-btn" data-toggle="modal"><i class="fa fa-trash mr-1"></i></a></td>`);
+                        $rowElement.append($cellElement);
+                        $('.product').append($rowElement);
+                        var effects = 'animate__animated animate__fadeIn animate__slow';
+                        var effectsend = 'animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd';
+                        $(`#${record.Id}`).addClass(effects).one(effectsend, function () {
+                            $(`#${record.Id}`).removeClass(effects);
+                        });
+                    }
+                }
+                else {
+                    let $cellElement = null;
+                    let $rowElement = $('<tr></tr>');
+
+                    $cellElement = $(`<td style="text-align:center" colspan="12">No data available in table</td>`);
+                    $rowElement.append($cellElement);
+                    $('.product').append($rowElement);//inserting a new row
+                }
+            },
+            error: function (data) {
+                document.getElementById('snackbar').style.visibility = "visible";
+                console.log(data);
+                setTimeout(function () {
+                    loadProducts();
+                }, 1000);
+            }
+        });
+    }
+
+    //Loading edit modal
+    function loadEdit(id) {
+        $.ajax({
+            type: "GET",
+            url: `/api/products/${id}`,
+            dataType: "json",
+            success: function (data) {
+                document.getElementById('snackbar').style.visibility = "hidden";
+                console.log(data);
+                $('#ItemNameInp').val(data.Name);
+                $('#catNameInp').val(data.Category);
+                $('#priceNameInp').val(data.Price.toFixed(2));
+                $('#idInp').val(data.Id);
+            },
+            error: function (data) {
+                document.getElementById('snackbar').style.visibility = "visible";
+                console.log(data);
+                setTimeout(function () {
+                    loadEdit(id);
+                }, 1000);
+                alert("Fail to retrieve data");
+            }
+        });
+    }
+
+    //Update product in the backend and frontend
+    function updateProduct() {
+        if ($('#editModalForm').valid()) {
+            let name = $('#ItemNameInp').val();
+            let cat = $('#catNameInp').val();
+            let price = parseFloat($('#priceNameInp').val());
+            let id = $('#idInp').val();
+            let webformdata = new WebFormData(name, cat, price, id);
+            $.ajax({
+                type: 'PUT',
+                url: `/api/products/${id}`,
+                contentType: 'application/json',
+                data: JSON.stringify(webformdata)
+            }).done(function (data, textStatus, jqXHR) {
+                document.getElementById('snackbar').style.visibility = "hidden";
+                new noty({
+                    text: "Edit Product Successful!",
+                    layout: 'center',
+                    theme: 'bootstrapTheme',
+                    type: 'success',
+                    callback: {
+                        onClose: function () {
+                            $('#editModal').trigger('click');
+                            let effects = 'animate__animated animate__pulse';
+                            let effectsend = 'animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd';
+                            var table = $('table.crud').DataTable();
+                            table.cell(`#${id}`, 1).data(`<td id="name${id}">${name}</td>`);
+                            table.cell(`#${id}`, 2).data(`<td id="cat${id}">${cat}</td>`);
+                            table.cell(`#${id}`, 3).data(`<td id="price${id}">&#36; ${price.toFixed(2)}</td>`);
+                            $(`#${id}`).addClass(effects).one(effectsend, function () {
+                                $(`#${id}`).removeClass(effects);
+                            });
+                            table.draw();
+                        }
+                    }
+                }).show();
+            }).fail(function (data, textStatus, jqXHR) {
+                console.log(data);
+                new noty({
+                    text: 'Edit Product Failed!',
+                    theme: 'bootstrapTheme',
+                    layout: 'center',
+                    timeout: 3000,
+                    type: 'error'
+                }).show();
+                document.getElementById('snackbar').style.visibility = "visible";
+                console.log(data);
+                setTimeout(function () {
+                    updateProduct();
+                }, 1000);
+                alert("Fail to retrieve data");
+            });
+        }
+    }
+
+    //Prepare Data
+    function WebFormData(name, cat, price, id) {
+        this.Name = name;
+        this.Category = cat;
+        this.Price = price;
+        this.Id = id;
+    }
+
+    //Loading delete modal
+    function loadDelete(id) {
+        $.ajax({
+            type: "GET",
+            url: `/api/products/${id}`,
+            dataType: "json",
+            success: function (data) {
+                document.getElementById('snackbar').style.visibility = "hidden";
+                console.log(data);
+                $("#deleteRec").text(`Do you really want to delete ${data.Name} record?`);
+                $("#deleteId").val(id);
+            },
+            error: function (data) {
+                document.getElementById('snackbar').style.visibility = "visible";
+                console.log(data);
+                setTimeout(function () {
+                    loadDelete(id);
+                }, 1000);
+                alert("Fail to retrieve data");
+            }
+        });
+    }
+
+    //Delete product in the backend and frontend
+    function deleteProduct() {
+        var id = $("#deleteId").val();
+        $.ajax({
+            type: "DELETE",
+            url: `/api/products/${id}`,
+            dataType: "json",
+        }).done(function (data, textStatus, jqXHR) {
+            document.getElementById('snackbar').style.visibility = "hidden";
+            new noty({
+                text: "Delete successful!",
+                layout: 'center',
+                theme: 'bootstrapTheme',
+                type: 'success',
+                callback: {
+                    onClose: function () {
+                        $('#myModal').trigger('click');
+                        $(`#${id}`).removeClass('animate__animated animate__fadeIn animate__slow');
+                        var effects = 'animate__animated animate__fadeOut animate__fast';
+                        var effectsend = 'animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd'
+                        $(`#${id}`).addClass(effects).one(effectsend, function () {
+                            var table = $('table.crud').DataTable();
+                            table.row(`#${id}`).remove().draw();
+                        });
+                    }
+                }
+            }).show();
+            }).fail(function (data, textStatus, jqXHR) {
+                document.getElementById('snackbar').style.visibility = "visible";
+                setTimeout(function () {
+                    deleteProduct();
+                }, 1000);
+                alert("Fail to retrieve data");
+            new noty({
+                text: "Fail to delete!",
+                theme: 'bootstrapTheme',
+                layout: 'center',
+                timeout: 3000,
+                type: 'error'
+            }).show();
+        });
+    }
+
+    //Add product in the frontend and backend
+    function addProduct() {
+        console.log($('#addModalForm').valid());
+        if ($('#addModalForm').valid()) {
+            let name = $('#addNameInp').val();
+            let cat = $('#addCatInp').val();
+            let price = $('#addPriceInp').val();
+            let id = ++checkid;
+            let webformdata = new WebFormData(name, cat, price, id);
+            $.ajax({
+                type: 'POST',
+                url: `/api/products`,
+                contentType: 'application/json',
+                data: JSON.stringify(webformdata)
+            }).done(function (data, textStatus, jqXHR) {
+                document.getElementById('snackbar').style.visibility = "hidden";
+                new noty({
+                    text: 'Add Product Successful!',
+                    layout: 'center',
+                    theme: 'bootstrapTheme',
+                    type: 'success',
+                    callback: {
+                        onClose: function () {
+                            $('#exampleModal').trigger('click');
+
+                            let $cellElement = null;
+                            let $rowElement = $(`<tr id="${id}"></tr>`);
+                            $cellElement = $(`<td id="id${id}">${id}</td>`);
+                            $rowElement.append($cellElement);
+                            $cellElement = $(`<td id="name${id}">${name}</td>`);
+                            $rowElement.append($cellElement);
+                            $cellElement = $(`<td id="cat${id}">${cat}</td>`);
+                            $rowElement.append($cellElement);
+                            $cellElement = $(`<td id="price${id}">&#36; ${parseFloat(price).toFixed(2)}</td>`);
+                            $rowElement.append($cellElement);
+                            $cellElement = $(`<td id="edit${id}"><a onclick="loadEdit('${id}')" href="#editModal" data-toggle="modal" class="edit"><i class="fa fa-edit"></i></a></td>`);
+                            $rowElement.append($cellElement);
+                            $cellElement = $(`<td id="delete${id}"><a href="#myModal" onclick="loadDelete('${id}')" class="trigger-btn" data-toggle="modal"><i class="fa fa-trash mr-1"></i></a></td>`);
+                            $rowElement.append($cellElement);
+                            var table = $('table.crud').DataTable();
+                            table.row.add($rowElement);
+                            table.draw();
+                            var effects = 'animate__animated animate__fadeIn animate__slow';
+                            var effectsend = 'animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd';
+                            $(`#${id}`).addClass(effects).one(effectsend, function () {
+                                $(`#${id}`).removeClass(effects);
+                            });
+                        }
+                    }
+                }).show();
+                }).fail(function (data, textStatus, jqXHR) {
+                    document.getElementById('snackbar').style.visibility = "visible";
+                    console.log(data);
+                    setTimeout(function () {
+                        addProduct();
+                    }, 1000);
+                    alert("Fail to retrieve data");
+                new noty({
+                    text: 'Add Product Failed!',
+                    theme: 'bootstrapTheme',
+                    layout: 'center',
+                    timeout: 3000,
+                    type: 'error'
+                }).show();
+            });
+        }
+    }
+
+    //Display Product by Category
+    $('#categoryInput').change(function () {
+        $('.catproduct').html('');
+        let category = $('#categoryInput').val();
+        $.ajax({
+            type: 'GET',
+            url: `/api/products?category=${category}`,
+            dataType: 'json',
+        }).done(function (record, textStatus, jqXHR) {
+            console.log(record);
+            for (let x = 0; x < record.length; x++) {
+                let data = record[x];
+                let $cellElement = null;
+                let $rowElement = $(`<tr id="newRow${data.Id}"></tr>`);
+                $cellElement = $(`<td id="id${data.Id}">${data.Id}</td>`);
+                $rowElement.append($cellElement);
+                $cellElement = $(`<td id="name${data.Id}">${data.Name}</td>`);
+                $rowElement.append($cellElement);
+                $cellElement = $(`<td id="cat${data.Id}">${data.Category}</td>`);
+                $rowElement.append($cellElement);
+                $cellElement = $(`<td id="price${data.Id}">&#36; ${parseFloat(data.Price).toFixed(2)}</td>`);
+                $rowElement.append($cellElement);
+                $('.catproduct').append($rowElement);
+                var effects = 'animate__animated animate__fadeIn animate__slow';
+                var effectsend = 'animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd';
+                $(`#newRow${data.Id}`).addClass(effects).one(effectsend, function () {
+                    $(`#newRow${data.Id}`).removeClass(effects);
+                });
+            }
+            }).fail(function (data, textStatus, jqXHR) {
+            console.log(data);
+            new noty({
+                text: 'Not Found',
+                theme: 'bootstrapTheme',
+                layout: 'center',
+                timeout: 3000,
+                type: 'error'
+            }).show();
+        });
+    });
+
+    //JQuery Validation
+    (function () {
+        jQuery.validator.addMethod("price", function (value, element) {
+            return this.optional(element) || /^\d{0,4}(\.\d{0,2})?$/i.test(value);
+        }, "You must include only two decimal places");
+        jQuery.validator.addMethod("whitespace", function (value, element) {
+            var length = $.trim(value).length;
+            let checker = true;
+            if (length == 0 && value.length != 0) {
+                checker = false;
+            }
+            return checker;
+        }, "Value cannot be whitespace");
+        jQuery.validator.addMethod("alphanumeric", function (value, element) {
+            return this.optional(element) || /^[a-z0-9\-_.,\s]+$/i.test(value);
+        }, "Please enter alphanumerical value (only - _ . and , is allowed)");
+        jQuery.validator.addMethod("exist", function (value, element) {
+            var table = document.getElementById('ptable');
+            let checker = true;
+            for (var r = 1, n = table.rows.length; r < n; r++) {
+                if (value == table.rows[r].cells[0].innerHTML) {
+                    checker = false;
+                }
+            }
+            return checker;
+        });
+        $("#editModalForm").validate({
+            rules: {
+                ItemNameInp: {
+                    required: true,
+                    whitespace: true,
+                    maxlength: 50,
+                    alphanumeric: true,
+                },
+                priceNameInp: {
+                    required: true,
+                    number: true,
+                    min: 0,
+                    price: true,
+                },
+                catNameInp: {
+                    required: true,
+                    whitespace: true,
+                    maxlength: 50,
+                    alphanumeric: true,
+                },
+            },
+            messages: {
+                ItemNameInp: {
+                    required: "Please enter Item Name",
+                    maxlength: "Please reduce the item id to below 50 characters",
+                },
+                priceNameInp: {
+                    required: "Please enter Price",
+                    number: "Please enter a valid number",
+                    min: "Please enter value that is greater or equal to 0",
+                },
+                catNameInp: {
+                    required: "Please enter Item Category",
+                    maxlength: "Please reduce the item category to below 50 characters",
+                },
+            }
+        });
+        $("#addModalForm").validate({
+            rules: {
+                addNameInp: {
+                    required: true,
+                    whitespace: true,
+                    maxlength: 50,
+                    alphanumeric: true,
+                },
+                addPriceInp: {
+                    required: true,
+                    number: true,
+                    min: 0,
+                    price: true,
+                    max: 100,
+                },
+                addCatInp: {
+                    required: true,
+                    whitespace: true,
+                    maxlength: 50,
+                    alphanumeric: true,
+                }
+            },
+            messages: {
+                addNameInput: {
+                    required: "Please enter Item Name",
+                    maxlength: "Please reduce the item id to below 50 characters",
+                },
+                addPriceInput: {
+                    required: "Please enter Price",
+                    number: "Please enter a valid number",
+                    min: "Please enter value that is greater or equal to 0",
+                    max: "Please enter value that is less than or equal to 100"
+                },
+                catNameInp: {
+                    required: "Please enter Item Category",
+                    maxlength: "Please reduce the item category to below 50 characters",
+                },
+            },
+        });
+    })();
+</script>
+

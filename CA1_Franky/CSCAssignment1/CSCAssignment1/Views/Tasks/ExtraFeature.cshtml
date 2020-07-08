@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "ExtraFeature";
+}
+<div class="row">
+    <!-- ============================================================== -->
+    <!-- basic table  -->
+    <!-- ============================================================== -->
+    <div class="col-lg-12 col-md-6 col-sm-12 col-12"> 
+        <p></p>
+        <div class="card">
+            <div class="phoneNum" style="flex:2;">
+                <label>Phone Number</label>
+                <input type="text" id="num">
+                <button href="#exampleModal" onclick="sendMessage()" class="btn btn-primary" data-target="">
+                    Send to Phone Number
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div class="row" id="headerRow">
+
+                    </div>
+
+                    <table id="example" class="table table-striped table-bordered second">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Positives</th>
+                                <th>Negatives</th>
+                                <th>Hospitalized</th>
+                                <th>Death</th>
+                                <th>Recovered</th>
+                            </tr>
+                        </thead>
+                        <tbody class="covidinfo"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end basic table  -->
+    <!-- ============================================================== -->
+</div>
+<div>
+    <div id="snackbar">Retrying...</div>
+</div>
+<style>
+    #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        top: 70px;
+        font-size: 17px;
+    }
+</style>
+<script>
+    loadCovid()
+    var data1;
+    function loadCovid() {
+        var settings = {
+            "url": "https://covidtracking.com/api/us",
+            "method": "GET",
+            "timeout": 0,
+        };
+
+        $.ajax(settings).done(function (data) {
+            document.getElementById('snackbar').style.visibility = "hidden";
+
+            console.log(data);
+
+            NewDate = data[0].date;
+            Positives = data[0].positive;
+            Negatives = data[0].negative;
+            Hospitalized = data[0].hospitalized;
+            Death = data[0].death;
+            Recovered = data[0].recovered;
+
+            data1 =  new webformdata(NewDate, Positives, Negatives, Hospitalized, Death, Recovered);
+            $tablerow = $(`<tr><td>${NewDate}</td><td>${Positives}</td><td>${Negatives}</td><td>${Hospitalized}</td><td>${Death}</td><td>${Recovered}</td></tr>`);
+            $('.covidinfo').append($tablerow);
+        }).fail(function (data) {
+            document.getElementById('snackbar').style.visibility = "visible";
+            console.log(data);
+            setTimeout(function () {
+                loadCovid();
+            }, 1000);
+            });
+    }
+    function sendMessage() {
+        let phone = $('#num').val();
+        
+        $.ajax({
+            type: "POST",
+            url: `/api/twilio/sendMessage?phoneNum=${phone}`,
+            contentType: 'application/json',
+            data: JSON.stringify(data1),
+        }).done(function (data, textStatus, jqXHR) {
+            document.getElementById('snackbar').style.visibility = "hidden";
+            new noty({
+                text: "Message Sent!",
+                layout: 'center',
+                theme: 'bootstrapTheme',
+                type: 'success',
+            });
+        }).fail(function (data) {
+            console.log(data);
+            new noty({
+                text: 'Failed to Send Message!',
+                theme: 'bootstrapTheme',
+                layout: 'center',
+                timeout: 3000,
+                type: 'error'
+            }).show();
+            document.getElementById('snackbar').style.visibility = "visible";
+            console.log(data);
+            setTimeout(function () {
+                sendMessage();
+            }, 1000);
+        });
+    }
+    function webformdata(Date, Positives, Negatives, Hospitalized, Death, Recovered) {
+        this.date = Date;
+        this.positives = Positives;
+        this.negatives = Negatives;
+        this.hospitalized = Hospitalized;
+        this.death = Death;
+        this.recovered = Recovered;
+    }
+</script>

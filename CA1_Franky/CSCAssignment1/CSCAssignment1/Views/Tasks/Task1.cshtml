@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Task 1";
+}
+<form role="form" id="weatherForm">
+    <select id="city">
+        <option>China</option>
+        <option>Indonesia</option>
+        <option>Japan</option>
+        <option>Russia</option>
+        <option>Singapore</option>
+    </select>
+    <label for="days">Number of Days</label>
+    <input type="number" id="days"/>
+    <button type="button" onclick="getInfo()" class="btn btn-primary" id="getWeatherButton" disabled>Get Weather</button>
+</form>
+<div>
+    <div id="snackbar">Retrying...</div>
+</div>
+<div class="container">
+    <br />
+    <div style="width:100%; margin:0 auto;">
+        <table id="weather" class="table table-striped table-bordered" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Minimal Temperature (Celsius)</th>
+                    <th>Maximum Temperature (Celsius)</th>
+                    <th>Average Temperature (Celsius)</th>
+                    <th>Sunrise</th>
+                    <th>Sunset</th>
+                </tr>
+            </thead>
+            <tbody class="weatherinfo" />
+        </table>
+    </div>
+</div>
+<style>
+    form .error {
+        color: #ff0000;
+    }
+
+    #weatherForm {
+        margin-top: 50px;
+    }
+
+    #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        top: 70px;
+        font-size: 17px;
+    }
+</style>
+<script>
+    $('#days').on('change', function () {
+        if ($('#days').val() == '') {
+            $('#getWeatherButton').prop('disabled', true);
+        }
+        else {
+            $('#getWeatherButton').prop('disabled', false);
+        }
+    });
+    //Populate Table
+    function getInfo() {
+        let cityName = $('#city').val();
+        let numOfdays = $('#days').val();
+        var apiKey = "*";
+        // build URI:
+        var uri = "https://api.worldweatheronline.com/premium/v1/weather.ashx?" + "&key=" + apiKey + "&q=" + cityName + "&format=json&num_of_days=" + numOfdays + "&includeLocation=yes";
+        // uri-encode it to prevent errors :
+        uri = encodeURI(uri);
+        /* end of building URI information */
+        $.ajax({
+            type: "GET",
+            url: uri,
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                var weatherData = data.data.weather;
+                for (index = 0; index < weatherData.length; index++) {
+                    maxTemperatureInCelcius = weatherData[index].maxtempC;
+                    minTemperatureInCelcius = weatherData[index].mintempC;
+                    avgTemperatureInCelcius = weatherData[index].avgtempC;
+                    sunrise = weatherData[index].astronomy[0].sunrise;
+                    sunset = weatherData[index].astronomy[0].sunset;
+                    weatherDate = weatherData[index].date;
+                    $tablerow = $(`<tr class="animate__animated animate__fadeIn animate__slow"><td>${weatherDate}</td><td>${cityName}</td><td>${minTemperatureInCelcius}</td><td>${maxTemperatureInCelcius}</td><td>${avgTemperatureInCelcius}</td><td>${sunrise}</td><td>${sunset}</td></tr>`);
+                    $('.weatherinfo').append($tablerow);
+                }
+            },
+            error: function (data) {
+                document.getElementById('snackbar').style.visibility = "visible";
+                console.log(data);
+                setTimeout(function () {
+                    getInfo();
+                }, 5000);
+            }
+        });
+    }
+
+</script>
+
