@@ -1,0 +1,846 @@
+﻿
+@{
+    ViewBag.Title = "Manage";
+}
+<br />
+<br />
+<link rel="stylesheet" href="~/Scripts/fonts/fontawesome/css/fontawesome-all.css" />
+<link rel="stylesheet" href="~/Scripts/fonts/material-design-iconic-font/css/materialdesignicons.min.css" />
+
+
+<style>
+    .list-group-item list-group-item-danger {
+        width: 500px !important;
+    }
+
+    #noty_center_layout_container {
+        width: 500px !important;
+    }
+
+    .modal-header .close {
+        margin-top: -21px;
+    }
+
+    .modal-header-edit {
+        background-color: cornflowerblue;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+        .modal-header-edit .close {
+            color: white;
+            text-shadow: 0 1px 0 #000;
+            opacity: 2.5;
+        }
+
+    .modal-confirm {
+        color: #636363;
+        width: 400px;
+        top: 115px;
+    }
+
+        .modal-confirm .modal-content {
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .modal-confirm .modal-header-delete {
+            border-bottom: none;
+            position: relative;
+        }
+
+        .modal-confirm h4 {
+            text-align: center;
+            font-size: 26px;
+        }
+
+        .modal-confirm .close {
+            top: -5px;
+            right: -2px;
+            color: white;
+            text-shadow: 0 1px 0 #000;
+            opacity: 2.5;
+        }
+
+        .modal-confirm .modal-body {
+            color: #999;
+        }
+
+        .modal-confirm .modal-footer {
+            border: none;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 13px;
+            padding: 10px 70px 25px;
+        }
+
+            .modal-confirm .modal-footer a {
+                color: #999;
+            }
+
+        .modal-confirm .icon-box {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            border-radius: 50%;
+            z-index: 9;
+            text-align: center;
+            border: 3px solid #f15e5e;
+        }
+
+            .modal-confirm .icon-box i {
+                color: #f15e5e;
+                font-size: 46px;
+                display: inline-block;
+                margin-top: 3px;
+                margin-right: 0;
+            }
+
+    .modal-header-delete {
+        background-color: #f15e5e;
+        margin-bottom: 10px;
+    }
+
+    .trigger-btn {
+        display: inline-block;
+        margin-left: 13px;
+        color: red;
+    }
+
+    .edit, .edit:hover {
+        color: blue;
+    }
+
+    .imgContainer {
+        position: relative;
+    }
+
+    #uploadhover {
+        cursor: pointer;
+    }
+     .editImgbutton {
+        position: absolute;
+        width: 200px;
+        left: 0;
+        top: 80px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity .35s ease;
+    }
+
+        .editImgbutton a {
+            width: 200px;
+            padding: 12px 48px;
+            text-align: center;
+            color: white;
+            background-color: rgba(71, 143, 225, 0.8);
+            z-index: 4;
+            font-size: 0.85rem;
+        }
+
+    .imgContainer:hover .editImgbutton {
+        opacity: 1;
+    }
+</style>
+<div class="panel  panel-primary">
+    <div class="panel-heading">
+        Manage Session Synopses
+        <div class="btn-group pull-right" style="margin-top: -7px;">
+            <button href="#exampleModal" class="btn btn-default btn-group-lg " data-toggle="modal" data-target="#exampleModal">Add Talent</button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Name</th>
+                            <th>Short Name</th>
+                            <th>Details</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="talentsTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Talent Record</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <form id="dataForm" role="form" class="form-horizontal">
+                    <input onchange="return fileValidation()" type="file" id="fileInput" style="padding: 2px;" />
+                    <div class="form-group">
+                        <div class="imgContainer" style="display:none;">
+                            <img id="changeImage" style="width:200px;"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="TalentNameInput">Name</label>
+                        <div class="col-md-5">
+                            <input type="text" id="TalentNameInput" name="TalentNameInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="TalentShortNameInput">Short Name</label>
+                        <div class="col-md-5">
+                            <input type="text" id="TalentShortNameInput" name="TalentShortNameInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="TalentReknownInput">Reknown</label>
+                        <div class="col-md-5">
+                            <input type="text" id="TalentReknownInput" name="TalentReknownInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="TalentBioInput">Bio</label>
+                        <div class="col-md-5">
+                            <textarea id="TalentBioInput" name="TalentBioInput" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="addRecord();" class="btn btn-primary" value="Add" id="addButton"><i class="fa fa-spinner fa-spin fa-2x hidden" id="createSpinner" style="margin-right:5px;"></i>Add</button>
+                        <button type="reset" class="btn btn-grey">Clear</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Details Modal -->
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-header-details" style="background-color:antiquewhite">
+                <h5 class="modal-title" id="exampleModalLabel" style="color:black;">Details</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="detailsModalForm" class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <img id="DetailsTalentpicInput" name="DetailsTalentpicInput" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="DetailsTalentNameInput">Name</label>
+                        <div class="col-md-5">
+                            <input type="text" id="DetailsTalentNameInput" name="DetailsTalentNameInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="DetailsTalentShortNameInput">Short Name</label>
+                        <div class="col-md-5">
+                            <input type="text" id="DetailsTalentShortNameInput" name="DetailsTalentShortNameInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="DetailsTalentReknownInput">Rekown</label>
+                        <div class="col-md-5">
+                            <input type="text" id="DetailsTalentReknownInput" name="DetailsTalentReknownInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="DetailsTalentBioInput">Bio</label>
+                        <div class="col-md-5">
+                            <textarea id="DetailsTalentBioInput" name="DetailsTalentBioInput" class="form-control" disabled></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Back</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-header-edit">
+                <h5 class="modal-title" id="exampleModalLabel" style="color:white;">Edit Item</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="editModalForm" class="form-horizontal">
+                    <div class="imgContainer">
+                        <img alt="upload" style="width:200px; margin-top: -14px;" id="editPhoto">
+                        <div onclick="$('#newphoto').click();" class="editImgbutton"><a href="#"> Change Photo </a></div>
+                        <input id='newphoto' onchange="editPhoto(this); del = true;" type='file' style="display: none;" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="UpdateTalentNameInput">Name</label>
+                        <div class="col-md-5">
+                            <input type="text" id="UpdateTalentNameInput" name="UpdateTalentNameInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="UpdateTalentShortNameInput">Short Name</label>
+                        <div class="col-md-5">
+                            <input type="text" id="UpdateTalentShortNameInput" name="UpdateTalentShortNameInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="UpdateTalentReknownInput">Reknown</label>
+                        <div class="col-md-5">
+                            <input type="text" id="UpdateTalentReknownInput" name="UpdateTalentReknownInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="UpdateTalentBioInput">Bio</label>
+                        <div class="col-md-5">
+                            <textarea id="UpdateTalentBioInput" name="UpdateTalentBioInput" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" id="editId" />
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-grey" onclick="resetEdit()">Reset</button>
+                        <button type="button" onclick="updateTalent()" class="btn btn-success" value="Save" id="saveButton"><i class="fa fa-spinner fa-spin fa-2x hidden" id="updateEditSpinner" style="margin-right:5px;"></i>Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal -->
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header modal-header-delete">
+                <h5 class="modal-title" id="exampleModalLabel" style="color:white;">Delete Talent Record</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="icon-box">
+                <i class="m-r-10 mdi mdi-close"></i>
+            </div>
+            <div class="modal-body">
+                <p id="deleteRec"></p>
+                <input type="hidden" id="deleteId" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                <button type="button" onclick="deleteRecord()" id="DeleteTalent" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/noty/jquery.noty.js"></script>
+    <script src="~/Scripts/noty/layouts/center.js"></script>
+    <script src="~/Scripts/noty/themes/bootstrap.js"></script>
+    <script src="~/Scripts/noty/themes/default.js"></script>
+    <script src="~/Scripts/noty/themes/relax.js"></script>
+    <script src="~/Scripts/noty/layouts/topRight.js "></script>
+
+    <script>
+        loadTalentsData();
+
+        function loadTalentsData() {
+            $loadTalentsDataHandler = jQuery.ajax({
+                url: '/api/talents',
+                method: 'GET',
+                dataType: 'json',
+                cache: false,
+                tryCount: 0,
+                retryLimit: 3,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                }
+            }).done(function (data, textStatus, jqXHR) {
+                console.log(data);
+
+                var talentsList = data;
+                var talentId = "";
+                var talent;
+                var talentName = "";
+                var talentShortName = "";
+                var talentReknown = "";
+                var talentBio = "";
+                var $tableElement = null;
+                var $cellElement = null;
+                var $rowElement = null;
+                //-------- Find the table element -----------
+                //I am using the $tableElement variable
+
+                $tableBodyElement = $('#talentsTableBody');
+
+                //I want to build rows and cells (using tr and td HTML elements) so that
+
+                //$tableBodyElement variable to represent (reference) the table element.
+
+                //-------- Begin creating <tr> and <td> HTML element ------
+                for (index = 0; index < talentsList.length; index++) {
+
+                    talent = talentsList[index];
+
+                    talentId = talent.Id;
+                    talentName = talent.Name;
+                    talentShortName = talent.ShortName;
+                    talentReknown = talent.Reknown;
+                    talentBio = talent.Bio;
+
+                    //Create new HTML <tr> element.
+                    //At the same time let the $rowElement variable to represent it.
+                    $rowElement = $('<tr></tr>');
+
+                    $cellElement = $('<td></td>', { text: talentId });
+                    $rowElement.append($cellElement);
+
+                    $cellElement = $('<td></td>', { text: talentName });
+                    $rowElement.append($cellElement);
+
+                    $cellElement = $('<td></td>', { text: talentShortName });
+                    $rowElement.append($cellElement);
+
+                    $hyperLinkElement = $('<button class="details" data-toggle="modal" onclick="loadDetails(' + talentId + ')">Details</button>').attr("href", "#detailsModal").addClass('btn btn-warning');
+
+                    $cellElement = $('<td></td>');
+
+                    $cellElement.append($hyperLinkElement);
+
+                    $rowElement.append($cellElement);
+
+                    $hyperLinkElement = $('<a class="edit" data-toggle="modal" onclick="loadEdit(' + talentId + ')"><i class="fa fa-edit"></i></a>').attr("href", "#editModal");
+
+                    $cellElement = $('<td></td>');
+
+                    $cellElement.append($hyperLinkElement);
+
+                    $rowElement.append($cellElement);
+
+                    $hyperLinkElement = $('<a class="trigger-btn" data-toggle="modal" onclick="loadDelete(' + talentId + ')"><i class="fa fa-trash mr-1"></i></a>').attr("href", "#myModal");
+
+                    $cellElement = $('<td></td>');
+
+                    $cellElement.append($hyperLinkElement);
+
+                    $rowElement.append($cellElement);
+                    //Insert the $rowElement into the table element represented by $tableElement.
+                    $tableBodyElement.append($rowElement);
+
+                }//end of for loop.
+            }//end of JavaScript anonymous function
+            )//end of the done() method;
+
+        }
+
+        function WebFormData(inName, inShortName, inReknown, inBio) {
+            this.Name = inName;
+            this.ShortName = inShortName;
+            this.Reknown = inReknown;
+            this.Bio = inBio;
+        }
+
+
+        function addRecord() {
+            $(`#createSpinner`).removeClass("hidden");
+            $(`#addButton`).attr("disabled", true);
+            var collectedTalentName = $('#TalentNameInput').val();
+            var collectedTalentShortName = $('#TalentShortNameInput').val();
+            var collectedTalentRekown = $('#TalentReknownInput').val();
+            var collectedTalentBio = $('#TalentBioInput').val();
+
+            var webFormData = new WebFormData(collectedTalentName, collectedTalentShortName, collectedTalentRekown, collectedTalentBio);
+            var webFormDataInString = JSON.stringify(webFormData);
+
+            $saveTalentHandler = jQuery.ajax({
+                type: 'POST',
+                url: '/API/talents/',
+                dataType: 'json',
+                tryCount: 0,
+                retryLimit: 3,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                },
+                contentType: 'application/json',
+                data: webFormDataInString
+            })
+
+            $saveTalentHandler.done(function (data, textStatus, jqXHR) {
+                new noty({
+                    text: "A new Talent record is created successfully",
+                    layout: 'center',
+                    theme: 'bootstrapTheme',
+                    type: 'success',
+                    timeout: 1000,
+                    callback: {
+                        onClose: function () {
+                            location.reload();
+                        }
+                    },
+                    layout: 'center'
+                }).show();
+            });
+
+            $saveTalentHandler.fail(function (jqXHR, textStatus) {
+                new noty({
+                    text: jqXHR.responseText,
+                    theme: 'bootstrapTheme',
+                    layout: 'center',
+                    timeout: 3000,
+                    callback: {
+                        onClose: function () {
+                            $(`#createSpinner`).addClass("hidden");
+                            $(`#addButton`).attr("disabled", false);
+                        }
+                    },
+                    type: 'error'
+                }).show();
+
+            });
+        }
+
+        //File Validation & Displaying picture 
+        function fileValidation() {
+            var fileInput = document.getElementById('fileInput');
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Please upload file having extensions .jpeg/.jpg/.png/.gif only.');
+                fileInput.value = '';
+                return false;
+            } else {
+                //Image preview
+                if (fileInput.files && fileInput.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#changeImage')
+                            .attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(fileInput.files[0]);
+                    $(`.imgContainer`).css("display", "block");
+                }
+            }
+}
+
+
+            //jiang lei's cloudinary
+          var urlForCloudImage = "https://res.cloudinary.com/dwkibjxo5/image/upload/v1592819729/";
+
+        function loadDetails(id) {
+
+            $.ajax({
+                type: "GET",
+                url: `/API/Talents/${id}`,
+                dataType: "json",
+                tryCount: 0,
+                retryLimit: 3,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                },
+                success: function (data) {
+                    console.log(data);
+                    var talent = data;
+
+
+                    var loadedDetailsTalentName = talent.Name;
+                    var loadedDetailsTalentShortName = talent.ShortName;
+                    var loadedDetailsTalentReknown = talent.Reknown;
+                    var loadedDetailsTalentBio = talent.Bio;
+
+                    //Populate the respective input controls with the talent details.
+
+                    $('#DetailsTalentpicInput').attr("src", urlForCloudImage + talent.ShortName + "_tn.jpg");
+                    $('#DetailsTalentNameInput').val(loadedDetailsTalentName);
+                    $('#DetailsTalentShortNameInput').val(loadedDetailsTalentShortName);
+                    $('#DetailsTalentReknownInput').val(loadedDetailsTalentReknown);
+                    $('#DetailsTalentBioInput').val(loadedDetailsTalentBio);
+
+                }
+
+            });
+        }
+
+        function loadEdit(id) {
+            $.ajax({
+                type: "GET",
+                url: `/API/Talents/${id}`,
+                dataType: "json",
+                tryCount: 0,
+                retryLimit: 3,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                },
+                success: function (data) {
+                    console.log(data);
+                    var talent = data;
+                    var loadedTalentName = talent.Name;
+                    var loadedTalentShortName = talent.ShortName;
+                    var loadedTalentReknown = talent.Reknown;
+                    var loadedTalentBio = talent.Bio;
+                    var loadedTalentID = talent.Id
+
+                    //Populate the respective input controls with the talent details.
+
+                    $('#editPhoto').attr("src", urlForCloudImage + talent.ShortName + "_tn.jpg");
+                    $('#UpdateTalentNameInput').val(loadedTalentName);
+                    $('#UpdateTalentShortNameInput').val(loadedTalentShortName);
+                    $('#UpdateTalentReknownInput').val(loadedTalentReknown);
+                    $('#UpdateTalentBioInput').val(loadedTalentBio);
+                    $('#editId').val(loadedTalentID);
+                },
+                error: function () {
+                    alert("Fail to get data for Talent " + id);
+                }
+
+            });
+        }
+
+        //Replace picture in the edit modal
+        function editPhoto(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#editPhoto')
+                            .attr('src', e.target.result);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                
+            }
+        }
+
+        //reset edit modal
+        function resetEdit() {
+            var id = $(`#editId`).val();
+
+            $.ajax({
+                type: "GET",
+                url: `/API/talents/${id}`,
+                dataType: "json",
+                tryCount: 0,
+                retryLimit: 3,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                },
+                success: function (data) {
+                    $('#UpdateTalentNameInput').val(data.Name);
+                    $('#UpdateTalentShortNameInput').val(data.ShortName);
+                    $('#UpdateTalentReknownInput').val(data.Reknown);
+                    $('#UpdateTalentBioInput').val(data.Bio);
+                    $('#editId').val(data.Id);
+                },
+                error: function () {
+                    alert("Fail to get data for Talent " + id);
+                }
+            });
+        }
+
+        function updateTalent() {
+            $(`#updateEditSpinner`).removeClass("hidden");
+            $(`#saveButton`).attr("disabled", true);
+            var collectedTalentName = $('#UpdateTalentNameInput').val();
+            var collectedTalentShortName = $('#UpdateTalentShortNameInput').val();
+            var collectedTalentRekown = $('#UpdateTalentReknownInput').val();
+            var collectedTalentBio = $('#UpdateTalentBioInput').val();
+            var collectedTalentID = $('#editId').val();
+
+            var webFormData = new WebFormData(collectedTalentName, collectedTalentShortName, collectedTalentRekown, collectedTalentBio, collectedTalentID);
+            var webFormDataInString = JSON.stringify(webFormData);
+
+            $updateTalentHandler = jQuery.ajax({
+                type: 'PUT',
+                url: `/API/talents/${collectedTalentID}`,
+                contentType: 'application/json',
+                tryCount: 0,
+                retryLimit: 3,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                },
+                data: webFormDataInString
+            })
+
+            $updateTalentHandler.done(function (textStatus, jqXHR) {
+                new noty({
+                    text: "the Talent record is updated successfully",
+                    layout: 'center',
+                    theme: 'bootstrapTheme',
+                    type: 'success',
+                    timeout: 2000,
+                    callback: {
+                        onClose: function () {
+                            location.reload(); //refresh the page
+                        }
+                    },
+                    layout: 'center'
+                }).show();
+            });
+
+            $updateTalentHandler.fail(function (jqXHR, textStatus) {
+                new noty({
+                    text: jqXHR.responseText,
+                    theme: 'bootstrapTheme',
+                    layout: 'center',
+                    timeout: 3000,
+                    callback: {
+                        onClose: function () {
+                            $(`#updateEditSpinner`).addClass("hidden");
+                            $(`#saveButton`).attr("disabled", false);
+                        }
+                    },
+                    type: 'error'
+                }).show();
+            });
+
+        }
+
+        //Loading delete modal
+        function loadDelete(id) {
+            $.ajax({
+                type: "GET",
+                url: `/API/Talents/${id}`,
+                dataType: "json",
+                tryCount: 0,
+                retryLimit: 3,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                },
+                success: function (data) {
+                    console.log(data);
+                    $("#deleteRec").text(`Do you really want to delete ${data.Name} ?`);
+                    $("#deleteId").val(id);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+
+        //Delete record in the backend and frontend
+        function deleteRecord() {
+            var id = $("#deleteId").val();
+            $.ajax({
+                type: "DELETE",
+                url: `/api/talents/${id}`,
+                dataType: "json",
+                tryCount: 0,
+                retryLimit: 3,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                },
+            }).done(function (data, textStatus, jqXHR) {
+                new noty({
+                    text: "Delete successful!",
+                    layout: 'topRight',
+                    theme: 'bootstrapTheme',
+                    type: 'success',
+                    callback: {
+                        onClose: function () {
+                            location.reload();
+                        }
+                    }
+                }).show();
+            }).fail(function () {
+                new noty({
+                    text: "Fail to delete!",
+                    theme: 'bootstrapTheme',
+                    layout: 'topRight',
+                    timeout: 3000,
+                    type: 'top'
+                }).show();
+            });
+        }
+
+    </script>
+}
