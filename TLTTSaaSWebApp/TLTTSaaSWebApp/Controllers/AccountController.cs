@@ -16,6 +16,8 @@ using Microsoft.Owin.Security.OAuth;
 using TLTTSaaSWebApp.Models;
 using TLTTSaaSWebApp.Providers;
 using TLTTSaaSWebApp.Results;
+using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace TLTTSaaSWebApp.Controllers
 {
@@ -339,6 +341,53 @@ namespace TLTTSaaSWebApp.Controllers
 
             return Ok();
         }
+
+        [AllowAnonymous]
+        [HttpGet, HttpPost]
+        [Route("Verify")]
+        public async Task<GoogleREspo> Verify([FromBody]MyToken Token)
+        {
+            ReCAPTCHAData _MyData = new ReCAPTCHAData
+            {
+                response = Token.Token,
+                secret = "6LcFQqgZAAAAALM7hgPfoET_qg_iVYsouueJkJ6p"
+            };
+            Debug.WriteLine("Token: " + _MyData.response);
+            Debug.WriteLine("secret key: " + _MyData.secret);
+            
+            HttpClient client = new HttpClient();
+            string urlStr = "https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}";
+            string url = string.Format(urlStr, _MyData.secret, _MyData.response);
+            var response = await client.GetStringAsync(url);
+
+            //var response = await client.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret={_MyData.secret}&response={_MyData.response}");
+
+            var capresp = JsonConvert.DeserializeObject<GoogleREspo>(response);
+
+            return capresp;
+        }
+
+        public class MyToken
+        {
+            public string Token { get; set; }
+        }
+
+        public class ReCAPTCHAData
+        {
+            public string response { get; set; } //Token
+            public string secret { get; set; }
+        }
+
+        public class GoogleREspo
+        {
+            public bool success { get; set; }
+            public double score { get; set; }
+            public string action { get; set; }
+            public DateTime challenge_ts { get; set; }
+            public string hostname { get; set; }
+        }
+
+
 
         // POST api/Account/RegisterExternal
         [OverrideAuthentication]

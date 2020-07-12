@@ -4,16 +4,19 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
 
-namespace TLTTSaaSWebApp.Controllers
+namespace BearerTokenAndreCAPTCHA.Controllers
 {
-    [Authorize]
+    [System.Web.Http.Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        [RequireHttps]
+        public string Get()
         {
-            return new string[] { "value1", "value2" };
+            var userName = this.RequestContext.Principal.Identity.Name;
+            return String.Format("Hello, {0}.", userName);
         }
 
         // GET api/values/5

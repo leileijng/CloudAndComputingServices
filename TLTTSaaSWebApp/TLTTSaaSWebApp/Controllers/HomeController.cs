@@ -14,5 +14,17 @@ namespace TLTTSaaSWebApp.Controllers
 
             return View();
         }
+        public ActionResult Register()
+        {
+            ViewBag.Title = "Register Page";
+
+            return View();
+        }
+        public ActionResult Login()
+        {
+            ViewBag.Title = "Login Page";
+
+            return View();
+        }
     }
 }

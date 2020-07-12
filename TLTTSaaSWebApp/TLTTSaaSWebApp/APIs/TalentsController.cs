@@ -15,7 +15,6 @@ namespace TLTTSaaSWebApp.APIs
         static readonly TalentRepository repository = new TalentRepository();
 
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        [RequireHttps]
         [HttpGet]
         [Route("api/talents")]
         public IEnumerable<Talent> GetAllTalents()
