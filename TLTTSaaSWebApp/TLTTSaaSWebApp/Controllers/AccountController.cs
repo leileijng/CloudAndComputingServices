@@ -72,7 +72,8 @@ namespace TLTTSaaSWebApp.Controllers
         [Route("Logout")]
         public IHttpActionResult Logout()
         {
-            Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
+            var AuthenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            AuthenticationManager.SignOut();
             return Ok();
         }
 

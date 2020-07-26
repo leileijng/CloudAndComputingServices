@@ -91,6 +91,7 @@
                             data: JSON.stringify(data)
                         }).done(function (data) {
                             self.result("Done!");
+                            window.location.href = "/Home/Login";
                         }).fail(showError);
                     }
                     else {
@@ -136,6 +137,7 @@
                             self.user(data.userName);
                             // Cache the access token in session storage.
                             sessionStorage.setItem(tokenKey, data.access_token);
+                            window.location.href = "/Talents/Manage";
                         }).fail(showError);
                     }
                     else {
@@ -162,7 +164,8 @@
             // Successfully logged out. Delete the token.
             self.user('');
             sessionStorage.removeItem(tokenKey);
-        }).fail(showError);
+            window.location.href = "/Home/Login";
+            }).fail(showError);
     }
 }
 
