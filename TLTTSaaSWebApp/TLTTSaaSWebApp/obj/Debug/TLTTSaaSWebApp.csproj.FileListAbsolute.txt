@@ -251,8 +251,14 @@ C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\Syste
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.csprojAssemblyReference.cache
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.csproj.CoreCompileInputs.cache
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.csproj.CopyComplete
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.dll
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.pdb
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.Core.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.DynamoDBv2.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.Core.pdb
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.Core.xml
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.DynamoDBv2.pdb
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.DynamoDBv2.xml
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.csprojAssemblyReference.cache

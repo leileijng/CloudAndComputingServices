@@ -339,6 +339,7 @@ namespace TLTTSaaSWebApp.Controllers
             {
                 return GetErrorResult(result);
             }
+            var result1 = UserManager.AddToRole(user.Id, "Free");
 
             return Ok();
         }

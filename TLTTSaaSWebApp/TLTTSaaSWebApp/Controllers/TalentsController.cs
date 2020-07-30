@@ -9,7 +9,6 @@ namespace TLTTSaaSWebApp.Controllers
 {
     public class TalentsController : Controller
     {
-        [Authorize]
         public ActionResult Manage()
         {
             ViewBag.Title = "Manage Talents";

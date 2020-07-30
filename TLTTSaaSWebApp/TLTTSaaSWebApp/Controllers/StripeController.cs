@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace CSCAssignment1.Controllers
 {
-    [Authorize]
     public class StripeController : Controller
     {
         // GET: Stripe

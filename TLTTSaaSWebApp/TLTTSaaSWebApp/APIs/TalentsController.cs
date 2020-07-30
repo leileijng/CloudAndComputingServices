@@ -10,6 +10,7 @@ using TLTTSaaSWebApp.Models;
 
 namespace TLTTSaaSWebApp.APIs
 {
+    [Authorize]
     public class TalentsController : ApiController
     {
         static readonly TalentRepository repository = new TalentRepository();
@@ -17,6 +18,7 @@ namespace TLTTSaaSWebApp.APIs
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpGet]
         [Route("api/talents")]
+        [AllowAnonymous]
         public IEnumerable<Talent> GetAllTalents()
         {
             return repository.GetAll();
@@ -24,6 +26,7 @@ namespace TLTTSaaSWebApp.APIs
 
         [HttpGet]
         [Route("api/talents/{id:int}", Name = "getTalentById")]
+        [AllowAnonymous]
         public Talent GetTalent(int id)
         {
             Talent item = repository.Get(id);
