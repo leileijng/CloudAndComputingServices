@@ -15,5 +15,11 @@ namespace TLTTSaaSWebApp.Controllers
 
             return View();
         }
+        public ActionResult Details()
+        {
+            ViewBag.Title = "Talent's Detail";
+
+            return View();
+        }
     }
 }

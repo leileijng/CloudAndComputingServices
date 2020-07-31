@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<div class="container">
+    <div class="col-md-offset-2 col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title">Talent Record Detail</div>
+            </div>
+            <div class="panel-body">
+                <form id="dataForm" role="form" class="form-horizontal">
+                    <div class="form-group">
+
+                        <img id="DetailsTalentpicInput" name="DetailsTalentpicInput" style="float: right; margin-right: 248px;" />
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="TalentNameInput">Name</label>
+                        <div class="col-md-5">
+                            <input type="text" id="TalentNameInput" name="TalentNameInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="TalentShortNameInput">Short Name</label>
+                        <div class="col-md-5">
+                            <input type="text" id="TalentShortNameInput" name="TalentShortNameInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="TalentReknownInput">Reknown</label>
+                        <div class="col-md-5">
+                            <input type="text" id="TalentReknownInput" name="TalentReknownInput" class="form-control input-group-sm"
+                                   maxlength="30" value="" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5" for="TalentBioInput">Bio</label>
+                        <div class="col-md-5">
+                            <textarea id="TalentBioInput" name="TalentBioInput" class="form-control" disabled></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-12">
+                        <label class="control-label col-md-1"></label>
+                        <div class="col-md-10">
+                            <div class="pull-right">
+                                <a class="btn btn-default" href="/Talents/Manage">Back</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- end of div element which has the class="panel-body" -->
+        </div><!-- end of the div element which has the class="panel" -->
+    </div><!-- end of the div element which has class="col-md-offset-2 col-md-8" -->
+</div><!-- end of div element which has the class="container" -->
+
+
+@section Scripts {
+    <script>
+        var urlForCloudImage = "https://res.cloudinary.com/dwkibjxo5/image/upload/v1592819729/";
+        //Declare a document scope variable, g_talentId.
+        //This variable will contain the numeric student id value
+        //which will be extracted from the address bar.
+        var loadedTalentName;
+        var loadedTalentShortName;
+        var loadedTalentReknown;
+        var loadedTalentBio;
+        var g_talentId = getIdFromAddressBar();
+
+        function getIdFromAddressBar() {
+            var urlArray = window.location.href.split('/');
+            var id = urlArray[urlArray.length - 1];
+            return id;
+        };
+
+        $loadTalentHandler = jQuery.ajax({
+            type: 'GET',
+            url: '/API/Talents/' + g_talentId,
+        })
+        $loadTalentHandler.done(function (data, textStatus, jqXHR) {
+
+            console.log(data);
+
+            var talent = data;
+
+            loadedTalentName = talent.Name;
+            loadedTalentShortName = talent.ShortName;
+            loadedTalentReknown = talent.Reknown;
+            loadedTalentBio = talent.Bio;
+
+            //Populate the respective input controls with the talent details.
+
+            $('#DetailsTalentpicInput').attr("src", urlForCloudImage + talent.ShortName + "_tn.jpg");
+            $('#TalentNameInput').val(loadedTalentName);
+            $('#TalentShortNameInput').val(loadedTalentShortName);
+            $('#TalentReknownInput').val(loadedTalentReknown);
+            $('#TalentBioInput').val(loadedTalentBio);
+
+
+
+
+        }//end of JavaScript anonymous function
+
+        )//end of the done() method;
+
+
+    </script>
+
+}

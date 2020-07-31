@@ -438,7 +438,7 @@
                     $cellElement = $('<td></td>', { text: talentShortName });
                     $rowElement.append($cellElement);
 
-                    $hyperLinkElement = $('<button class="details" data-toggle="modal" onclick="loadDetails(' + talentId + ')">Details</button>').attr("href", "#detailsModal").addClass('btn btn-warning');
+                   $hyperLinkElement = $('<a class="details" href="/Talents/Details/' + talentId + '">Details</button>').addClass('btn btn-warning');
 
                     $cellElement = $('<td></td>');
 
@@ -571,7 +571,7 @@
             //jiang lei's cloudinary
           var urlForCloudImage = "https://res.cloudinary.com/dwkibjxo5/image/upload/v1592819729/";
 
-        function loadDetails(id) {
+        /*function loadDetails(id) {
 
             $.ajax({
                 type: "GET",
@@ -611,7 +611,7 @@
                 }
 
             });
-        }
+        }*/
 
         function loadEdit(id) {
             $.ajax({
