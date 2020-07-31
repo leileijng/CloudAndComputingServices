@@ -17,7 +17,7 @@ namespace TLTTSaaSWebApp.APIs
     {
         [HttpPost]
         [Route("api/Dynamo/UploadAccount")]
-        public async Task<IHttpActionResult> ExecuteAsync([FromBody] JObject data)
+        public async Task<IHttpActionResult> PostAsync([FromBody] JObject data)
         {
             using (IAmazonDynamoDB ddbClient = new AmazonDynamoDBClient())
             {
@@ -36,6 +36,32 @@ namespace TLTTSaaSWebApp.APIs
                         }
                     });
                     return Ok("Success!");
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.ToString());
+                }
+            }
+        }
+
+        [HttpGet]
+        [Route("api/Dynamo/RetrieveAccount/{email}")]
+        public async Task<IHttpActionResult> GetAsync(string email)
+        {
+            using (IAmazonDynamoDB ddbClient = new AmazonDynamoDBClient())
+            {
+                try
+                {
+                    Dictionary<string, AttributeValue> item = (await ddbClient.GetItemAsync(new GetItemRequest
+                    {
+                        TableName = "Account",
+                        ConsistentRead = true,
+                        Key = new Dictionary<string, AttributeValue>
+                        {
+                           {"email",new AttributeValue{S = email} }
+                        }
+                    })).Item;
+                    return Ok(item);
                 }
                 catch (Exception e)
                 {
