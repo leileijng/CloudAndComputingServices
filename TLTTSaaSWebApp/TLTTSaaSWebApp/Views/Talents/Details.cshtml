@@ -58,7 +58,25 @@
         </div><!-- end of the div element which has the class="panel" -->
     </div><!-- end of the div element which has class="col-md-offset-2 col-md-8" -->
 </div><!-- end of div element which has the class="container" -->
+<div id="disqus_thread"></div>
+<script>
 
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+    var disqus_config = function () {
+        this.page.url = "http://localhost:56885/Talents/Details/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = getIdFromAddressBar; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    function getIdFromAddressBar() {
+        var urlArray = window.location.href.split('/');
+        var id = urlArray[urlArray.length - 1];
+        return id;
+    };
+
+</script>
 
 @section Scripts {
     <script>
@@ -101,7 +119,11 @@
             $('#TalentReknownInput').val(loadedTalentReknown);
             $('#TalentBioInput').val(loadedTalentBio);
 
-
+            let nameid = loadedTalentShortName.replace("_", "");
+            var d = document, s = d.createElement('script');
+            s.src = `https://${nameid}.disqus.com/embed.js`;
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
 
 
         }//end of JavaScript anonymous function

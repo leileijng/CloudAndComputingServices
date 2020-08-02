@@ -21,5 +21,11 @@ namespace TLTTSaaSWebApp.Controllers
 
             return View();
         }
+        public ActionResult Glacier()
+        {
+            ViewBag.Title = "Upload Archive";
+
+            return View();
+        }
     }
 }

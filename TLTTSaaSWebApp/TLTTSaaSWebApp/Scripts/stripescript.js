@@ -226,48 +226,78 @@ function ViewModel() {
             displayError.textContent = '';
         }
     }
+    async function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
+        let email = $('#emailId').val();
+        let customerId = "";
+        await $.ajax({
+            type: 'GET',
+            url: `/api/Dynamo/RetrieveAccount?email=${email}`,
+            dataType: 'json',
+            cache: false,
+            success: async function (data) {
+                console.log(data);
+                customerId = data.customer_id.S;
 
-    function createPaymentMethod({ card, isPaymentRetry, invoiceId }) {
-        const params = new URLSearchParams(document.location.search.substring(1));
-        const customerId = params.get('customerId');
-        // Set up payment method for recurring usage
-        let billingName = document.querySelector('#name').value;
+                let billingName = document.querySelector('#name').value;
 
-        let priceId = document.getElementById('priceId').innerHTML.toUpperCase();
-
-        stripe
-            .createPaymentMethod({
-                type: 'card',
-                card: card,
-                billing_details: {
-                    name: billingName,
-                },
-            })
-            .then((result) => {
-                if (result.error) {
-                    displayError(result);
-                } else {
-                    if (isPaymentRetry) {
-                        // Update the payment method and retry invoice payment
-                        retryInvoiceWithNewPaymentMethod({
-                            customerId: customerId,
-                            paymentMethodId: result.paymentMethod.id,
-                            invoiceId: invoiceId,
-                            priceId: priceId,
-                        });
-                    } else {
-                        // Create the subscription
-                        createSubscription({
-                            customerId: customerId,
-                            paymentMethodId: result.paymentMethod.id,
-                            priceId: priceId,
-                        });
-                    }
+                let priceId = document.getElementById('priceId').innerHTML.toUpperCase();
+                let price = "0";
+                let role = "Free";
+                if (priceId == "PREMIUM") {
+                    price = "5";
+                    role = "Premium";
                 }
-            });
+                var newdata = {
+                    email: email,
+                    customer_id: customerId,
+                    price: price,
+                };
+                await $.ajax({
+                    type: 'POST',
+                    url: `/api/Dynamo/UploadAccount`,
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(newdata)
+                })
+                await $.ajax({
+                    type: 'PUT',
+                    url: `/api/Account/ChangeRole?email=${email}&newrole=${role}`,
+                })
+                stripe
+                    .createPaymentMethod({
+                        type: 'card',
+                        card: card,
+                        billing_details: {
+                            name: billingName,
+                        },
+                    })
+                    .then((result) => {
+                        if (result.error) {
+                            displayError(result);
+                        } else {
+                            if (isPaymentRetry) {
+                                // Update the payment method and retry invoice payment
+                                retryInvoiceWithNewPaymentMethod({
+                                    customerId: customerId,
+                                    paymentMethodId: result.paymentMethod.id,
+                                    invoiceId: invoiceId,
+                                    priceId: priceId,
+                                });
+                            } else {
+                                // Create the subscription
+                                createSubscription({
+                                    customerId: customerId,
+                                    paymentMethodId: result.paymentMethod.id,
+                                    priceId: priceId,
+                                });
+                            }
+                        }
+                    });
+            }
+        })
+        // Set up payment method for recurring usage
     }
 
-    function goToPaymentPage(priceId) {
+    self.goToPaymentPage = function (priceId) {
         // Show the payment screen
         document.querySelector('#payment-form').classList.remove('hidden');
 
@@ -296,11 +326,11 @@ function ViewModel() {
         changePriceSelection(priceId);
     }
 
-    function changePrice() {
+    self.changePrice = function () {
         demoChangePrice();
     }
 
-    function switchPrices(newPriceIdSelected) {
+    self.switchPrices = function (newPriceIdSelected) {
         const params = new URLSearchParams(document.location.search.substring(1));
         const currentSubscribedpriceId = params.get('priceId');
         const customerId = params.get('customerId');
@@ -345,7 +375,7 @@ function ViewModel() {
         }
     }
 
-    function confirmPriceChange() {
+    self.confirmPriceChange = function () {
         const params = new URLSearchParams(document.location.search.substring(1));
         const subscriptionId = params.get('subscriptionId');
         let newPriceId = document.getElementById('new-price-selected').innerHTML;
@@ -661,7 +691,7 @@ function ViewModel() {
             });
     }
 
-    function cancelSubscription() {
+    self.cancelSubscription = function () {
         changeLoadingStatePrices(true);
         const params = new URLSearchParams(document.location.search.substring(1));
         const subscriptionId = params.get('subscriptionId');

@@ -1,0 +1,1633 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Disqus.Net</name>
+    </assembly>
+    <members>
+        <member name="M:Disqus.NET.DisqusApiBase.DisqusParameters.WithOptionalParameter(System.String,System.Object)">
+            <summary>
+            Ignores parameter if value is null
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Disqus.NET.DisqusApiException">
+            <summary>
+            
+            </summary>
+            <remarks>https://msdn.microsoft.com/en-us/library/ms229064(v=vs.100).aspx</remarks>
+        </member>
+        <member name="T:Disqus.NET.DisqusApiResponseCode">
+            <summary>
+            <remarks>https://disqus.com/api/docs/errors/</remarks>
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.Success">
+            <summary>
+            Success
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.InvalidEndpoint">
+            <summary>
+            Endpoint not valid
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.MissingOrInvalidArgument">
+            <summary>
+            Missing or invalid argument
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.InvalidResource">
+            <summary>
+            Endpoint resource not valid
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.AuthenticationRequired">
+            <summary>
+            You must be authenticated to perform this action
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.InvalidApiKey">
+            <summary>
+            Invalid API key
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.InvalidApiVersion">
+            <summary>
+            Invalid API version
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.InvalidResourceHttpMethod">
+            <summary>
+            You cannot access this resource using %(request_method)s
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.RequestedObjectNotFound">
+            <summary>
+            A requested object was not found
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.NoAccessToResourceWithApiKey">
+            <summary>
+            You cannot access this resource using your %(access_type)s API key
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.NotSupportedOperation">
+            <summary>
+            This operation is not supported
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.InvalidApiKeyOnThisDomain">
+            <summary>
+            Your API key is not valid on this domain
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.ApplicationHaveNoAccessToResource">
+            <summary>
+            This application does not have enough privileges to access this resource
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.ExceededResourceRateLimit">
+            <summary>
+            You have exceeded the rate limit for this resource
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.ExceededAccountRateLimit">
+            <summary>
+            You have exceeded the rate limit for your account
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.InternalServerError">
+            <summary>
+            There was internal server error while processing your request
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.Timeout">
+            <summary>
+            Your request timed out
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.AuthenticatedUserHaveNoAccessToFeature">
+            <summary>
+            The authenticated user does not have access to this feature
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.InvalidAuthorizationSignature">
+            <summary>
+            The authorization signature you passed was not valid
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.CaptchaRequired">
+            <summary>
+            You must re-submit this request with a response to the captcha challenge
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.ApiUndergoingMaintenanceAndChangesWereSaved">
+            <summary>
+            The API is currently undergoing maintenance, and your changes were saved, but will not be visible yet.
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.ApiUndergoingMaintenanceAndChangesCouldNotBeSaved">
+            <summary>
+            The API is currently undergoing maintenance, and your changes could not be saved.
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.NoAppropriatePermissionsToResource">
+            <summary>
+            You do not have the appropriate permissions to access this resource
+            </summary>
+        </member>
+        <member name="F:Disqus.NET.DisqusApiResponseCode.VerificationRequired">
+            <summary>
+            You must be authenticated and verified by the forum owner to perform this action
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.DisqusAuth.ApiKey">
+            <summary>
+            server-side API key or public-facing JavaScript API key
+            </summary>
+        </member>
+        <member name="T:Disqus.NET.DisqusEndpoints">
+            <summary>
+            Endpoints for Disqus API 3.0
+            </summary>
+        </member>
+        <member name="M:Disqus.NET.DisqusEndpoints.SetProxy(System.String)">
+            <summary>
+            Allow replace Disqus API url with custom proxy url
+            </summary>
+            <param name="proxyDomain"></param>
+        </member>
+        <member name="M:Disqus.NET.DisqusRequestProcessor.ExecuteAsync``1(Disqus.NET.DisqusRequestMethod,System.String,System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            
+            </summary>
+            <exception cref="T:Disqus.NET.DisqusApiException"></exception>
+            <typeparam name="T"></typeparam>
+            <param name="method"></param>
+            <param name="endpoint"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.DisqusTrustedDomainsApi.ListAsync(Disqus.NET.DisqusAccessToken,System.String)">
+            <summary>
+            Returns a list of forum trusted domains
+            </summary>
+            <param name="accessToken"></param>
+            <param name="forum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.DisqusTrustedDomainsApi.CreateAsync(Disqus.NET.DisqusAccessToken,System.String,System.String)">
+            <summary>
+            Adds a trusted domain to a forum
+            </summary>
+            <param name="accessToken"></param>
+            <param name="forum"></param>
+            <param name="domainName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.DisqusTrustedDomainsApi.KillAsync(Disqus.NET.DisqusAccessToken,System.Int32)">
+            <summary>
+            Removes a trusted domain from a forum
+            </summary>
+            <param name="accessToken"></param>
+            <param name="domain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusBlacklistsApi.AddAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusBlacklistAddRequest)">
+            <summary>
+            Adds an entry to the blacklist.
+            </summary>
+            <remarks>https://disqus.com/api/docs/blacklists/add/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusBlacklistsApi.ListAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusBlacklistListRequest)">
+            <summary>
+            Returns a list of all blacklist entries.
+            </summary>
+            <remarks>https://disqus.com/api/docs/blacklists/list/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusBlacklistsApi.RemoveAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusBlacklistRemoveRequest)">
+            <summary>
+            Removes an entry from the blacklist.
+            </summary>
+            <remarks>https://disqus.com/api/docs/blacklists/remove/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusCategoryApi.CreateAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusCategoryCreateRequest)">
+            <summary>
+            Creates a new category.
+            </summary>
+            <remarks>https://disqus.com/api/docs/categories/create/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusCategoryApi.CreateAsync(Disqus.NET.Requests.DisqusCategoryCreateRequest)">
+            <summary>
+            Creates a new category.
+            </summary>
+            <remarks>https://disqus.com/api/docs/categories/create/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusCategoryApi.DetailsAsync(Disqus.NET.DisqusAccessToken,System.Int32)">
+            <summary>
+            Returns category details.
+            </summary>
+            <remarks>https://disqus.com/api/3.0/categories/details.json</remarks>
+            <param name="accessToken"></param>
+            <param name="categoryId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusCategoryApi.DetailsAsync(System.Int32)">
+            <summary>
+            Returns category details.
+            </summary>
+            <remarks>https://disqus.com/api/3.0/categories/details.json</remarks>
+            <param name="categoryId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusCategoryApi.ListAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusCategoryListRequest)">
+            <summary>
+            Returns a list of categories within a forum.
+            </summary>
+            <remarks>https://disqus.com/api/3.0/categories/list.json</remarks>
+            <returns></returns>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusCategoryApi.ListAsync(Disqus.NET.Requests.DisqusCategoryListRequest)">
+            <summary>
+            Returns a list of categories within a forum.
+            </summary>
+            <remarks>https://disqus.com/api/3.0/categories/list.json</remarks>
+            <returns></returns>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusCategoryApi.ListPostsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusCategoryListPostsRequest)">
+            <summary>
+            Returns a list of posts within a category.
+            </summary>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusCategoryApi.ListPostsAsync(Disqus.NET.Requests.DisqusCategoryListPostsRequest)">
+            <summary>
+            Returns a list of posts within a category.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusCategoryApi.ListThreadsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusCategoryListThreadsRequest)">
+            <summary>
+            Returns a list of threads within a category sorted by the date created.
+            </summary>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusCategoryApi.ListThreadsAsync(Disqus.NET.Requests.DisqusCategoryListThreadsRequest)">
+            <summary>
+            Returns a list of threads within a category sorted by the date created.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusExportsApi.ExportForumAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusExportExportForumRequest)">
+            <summary>
+            
+            </summary>
+            <remarks>https://disqus.com/api/docs/exports/exportForum/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Disqus.NET.IDisqusForumsApi">
+            <summary>
+            
+            <remarks>https://disqus.com/api/docs/forums/</remarks>
+            </summary>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.CreateAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumCreateRequest)">
+            <summary>
+            Creates a new forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/create/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.DetailsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumDetailsRequest)">
+            <summary>
+            Returns forum details.
+            <remarks>https://disqus.com/api/docs/forums/details/</remarks>
+            </summary>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.DetailsAsync(Disqus.NET.Requests.DisqusForumDetailsRequest)">
+            <summary>
+            Returns forum details.
+            <remarks>https://disqus.com/api/docs/forums/details/</remarks>
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.DisableAdsAsync(Disqus.NET.DisqusAccessToken,System.String)">
+            <summary>
+            
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/disableAds/</remarks>
+            <param name="accessToken"></param>
+            <param name="forum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.InterestingForumsAsync(Disqus.NET.DisqusAccessToken,System.Int32)">
+            <summary>
+            
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/interestingForums/</remarks>
+            <param name="accessToken"></param>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.InterestingForumsAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/interestingForums/</remarks>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListCategoriesAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumListCategoriesRequest)">
+            <summary>
+            Returns a list of categories within a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listCategories/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListCategoriesAsync(Disqus.NET.Requests.DisqusForumListCategoriesRequest)">
+            <summary>
+            Returns a list of categories within a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listCategories/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListFollowersAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumListFollowersRequest)">
+            <summary>
+            Returns a list of users following a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listFollowers/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListFollowersAsync(Disqus.NET.Requests.DisqusForumListFollowersRequest)">
+            <summary>
+            Returns a list of users following a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listFollowers/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListModeratorsAsync(Disqus.NET.DisqusAccessToken,System.String)">
+            <summary>
+            Returns a list of all moderators on a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listModerators/</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListModeratorsAsync(System.String)">
+            <summary>
+            Returns a list of all moderators on a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listModerators/</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListMostActiveUsersAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumListMostActiveUsersRequest)">
+            <summary>
+            Returns a list of users active within a forum ordered by most comments made.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listMostActiveUsers/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListMostActiveUsersAsync(Disqus.NET.Requests.DisqusForumListMostActiveUsersRequest)">
+            <summary>
+            Returns a list of users active within a forum ordered by most comments made.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listMostActiveUsers/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListMostLikedUsersAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumListMostLikedUsersRequest)">
+            <summary>
+            Returns a list of users active within a forum ordered by most likes received.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listMostLikedUsers/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListMostLikedUsersAsync(Disqus.NET.Requests.DisqusForumListMostLikedUsersRequest)">
+            <summary>
+            Returns a list of users active within a forum ordered by most likes received.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listMostLikedUsers/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListPostsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumListPostsRequest)">
+            <summary>
+            Returns a list of posts within a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listPosts/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListPostsAsync(Disqus.NET.Requests.DisqusForumListPostsRequest)">
+            <summary>
+            Returns a list of posts within a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listPosts/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListThreadsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumListThreadsRequest)">
+            <summary>
+            Returns a list of threads within a forum sorted by the date created.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listThreads/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListThreadsAsync(Disqus.NET.Requests.DisqusForumListThreadsRequest)">
+            <summary>
+            Returns a list of threads within a forum sorted by the date created.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listThreads/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListUsersAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumListUsersRequest)">
+            <summary>
+            Returns a list of users active within a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listUsers/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ListUsersAsync(Disqus.NET.Requests.DisqusForumListUsersRequest)">
+            <summary>
+            Returns a list of users active within a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/listUsers/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.AddModeratorAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumAddModeratorRequest)">
+            <summary>
+            Adds a moderator to a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/addModerator/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.RemoveModeratorAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumRemoveModeratorRequest)">
+            <summary>
+            Removes a moderator from a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/removeModerator/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.RemoveDefaultAvatarAsync(Disqus.NET.DisqusAccessToken,System.String)">
+            <summary>
+            Switches a forum to use the regular default avatar instead of a custom one
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/removeDefaultAvatar/</remarks>
+            <param name="accessToken"></param>
+            <param name="forum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.FollowAsync(Disqus.NET.DisqusAccessToken,System.String)">
+            <summary>
+            Follow a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/follow/</remarks>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.UnfollowAsync(Disqus.NET.DisqusAccessToken,System.String)">
+            <summary>
+            Unfollow a forum.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/unfollow/</remarks>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.UpdateAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumUpdateRequest)">
+            <summary>
+            Updates forum details.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/update/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusForumsApi.ValidateAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusForumValidateRequest)">
+            <summary>
+            Updates forum details.
+            </summary>
+            <remarks>https://disqus.com/api/docs/forums/validate/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusOrganizationsApi.ListAdminsAsync(Disqus.NET.DisqusAccessToken,System.Int32)">
+            <summary>
+            List all the admins in an organization.
+            </summary>
+            <remarks>https://disqus.com/api/docs/organizations/listAdmins/</remarks>
+            <param name="accessToken"></param>
+            <param name="organization"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusOrganizationsApi.AddAdminAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusOrganizationAddAdminRequest)">
+            <summary>
+            Adds an admin to an organization. Updates permissions of existing admins too.
+            </summary>
+            <remarks>https://disqus.com/api/docs/organizations/addAdmin/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusOrganizationsApi.RemoveAdminAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusOrganizationRemoveAdminRequest)">
+            <summary>
+            Removes an admin from an organization.
+            </summary>
+            <remarks>https://disqus.com/api/docs/organizations/removeAdmin/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusOrganizationsApi.SetRoleAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusOrganizationSetRoleRequest)">
+            <summary>
+            Add a user with an arbitrary role to an organization.
+            </summary>
+            <remarks>https://disqus.com/api/docs/organizations/setRole/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.ApproveAsync(Disqus.NET.DisqusAccessToken,System.String[])">
+            <summary>
+            Approves the requested post(s).
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/approve/</remarks>
+            <param name="accessToken"></param>
+            <param name="post"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.CreateAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusPostCreateRequest)">
+            <summary>
+            Creates a new post.
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/create/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.CreateAsync(Disqus.NET.Requests.DisqusPostCreateRequest)">
+            <summary>
+            Creates a new post.
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/create/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.DetailsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusPostDetailsRequest)">
+            <summary>
+            Returns information about a post.
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/details/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.DetailsAsync(Disqus.NET.Requests.DisqusPostDetailsRequest)">
+            <summary>
+            Returns information about a post.
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/details/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.GetContextAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusPostGetContextRequest)">
+            <summary>
+            Returns the hierarchal tree of a post (all parents).
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/getContext/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.GetContextAsync(Disqus.NET.Requests.DisqusPostGetContextRequest)">
+            <summary>
+            Returns the hierarchal tree of a post (all parents).
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/getContext/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.ListAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusPostListRequest)">
+            <summary>
+            Returns a list of posts ordered by the date created.
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/list/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.ListAsync(Disqus.NET.Requests.DisqusPostListRequest)">
+            <summary>
+            Returns a list of posts ordered by the date created.
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/list/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.ListPopularAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusPostListPopularRequest)">
+            <summary>
+            Returns a list of posts ordered by the date created.
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/listPopular/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.ListPopularAsync(Disqus.NET.Requests.DisqusPostListPopularRequest)">
+            <summary>
+            Returns a list of posts ordered by the date created.
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/listPopular/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.RemoveAsync(Disqus.NET.DisqusAccessToken,System.Int64[])">
+            <summary>
+            Deletes the requested post(s).
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/remove/</remarks>
+            <param name="accessToken"></param>
+            <param name="posts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.ReportAsync(Disqus.NET.DisqusAccessToken,System.Int64)">
+            <summary>
+            Reports a post (flagging).
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/report/</remarks>
+            <param name="accessToken"></param>
+            <param name="postId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.ReportAsync(System.Int32)">
+            <summary>
+            Reports a post (flagging).
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/report/</remarks>
+            <param name="postId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.RestoreAsync(Disqus.NET.DisqusAccessToken,System.Int64[])">
+            <summary>
+            Undeletes the requested post(s).
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/restore/</remarks>
+            <param name="accessToken"></param>
+            <param name="posts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.SpamAsync(Disqus.NET.DisqusAccessToken,System.Int64[])">
+            <summary>
+            Marks the requested post(s) as spam.
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/spam/</remarks>
+            <param name="accessToken"></param>
+            <param name="posts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.UpdateAsync(Disqus.NET.DisqusAccessToken,System.Int64,System.String)">
+            <summary>
+            Updates information on a post.
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/update/</remarks>
+            <param name="accessToken"></param>
+            <param name="postId"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.VoteAsync(Disqus.NET.DisqusAccessToken,System.Int64,Disqus.NET.Requests.DisqusVote)">
+            <summary>
+            Register a vote on a post.
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/vote/</remarks>
+            <param name="accessToken"></param>
+            <param name="postId"></param>
+            <param name="vote"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusPostsApi.VoteAsync(System.Int64,Disqus.NET.Requests.DisqusVote)">
+            <summary>
+            Register a vote on a post.
+            </summary>
+            <remarks>https://disqus.com/api/docs/posts/vote/</remarks>
+            <param name="postId"></param>
+            <param name="vote"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Disqus.NET.IDisqusRequestProcessor" -->
+        <member name="M:Disqus.NET.IDisqusThreadsApi.ApproveAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadApproveRequest)">
+            <summary>
+            
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/approve/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.CloseAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadCloseRequest)">
+            <summary>
+            Closes a thread.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/close/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.CreateAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadCreateRequest)">
+            <summary>
+            Creates a new thread.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/create/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.DetailsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadDetailsRequest)">
+            <summary>
+            Returns thread details.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/details/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.DetailsAsync(Disqus.NET.Requests.DisqusThreadDetailsRequest)">
+            <summary>
+            Returns thread details.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/details/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.ListAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadListRequest)">
+            <summary>
+            Returns a list of threads sorted by the date created.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/list/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.ListAsync(Disqus.NET.Requests.DisqusThreadListRequest)">
+            <summary>
+            Returns a list of threads sorted by the date created.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/list/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.ListHotAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadListHotRequest)">
+            <summary>
+            Returns a list of threads sorted by hotness (date and likes).
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/listHot/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.ListHotAsync(Disqus.NET.Requests.DisqusThreadListHotRequest)">
+            <summary>
+            Returns a list of threads sorted by hotness (date and likes).
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/listHot/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.ListPopularAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadListPopularRequest)">
+            <summary>
+            Returns a list of threads sorted by number of posts made since 'interval'
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/listPopular/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.ListPopularAsync(Disqus.NET.Requests.DisqusThreadListPopularRequest)">
+            <summary>
+            Returns a list of threads sorted by number of posts made since 'interval'
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/listPopular/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.ListPostsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadListPostsRequest)">
+            <summary>
+            Returns a list of posts within a thread.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/listPosts/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.ListPostsAsync(Disqus.NET.Requests.DisqusThreadListPostsRequest)">
+            <summary>
+            Returns a list of posts within a thread.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/listPosts/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.ListUsersVotedThreadAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadListUsersVotedThreadRequest)">
+            <summary>
+            Returns a list of users that voted on this thread.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/listUsersVotedThread/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.ListUsersVotedThreadAsync(Disqus.NET.Requests.DisqusThreadListUsersVotedThreadRequest)">
+            <summary>
+            Returns a list of users that voted on this thread.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/listUsersVotedThread/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.OpenAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadOpenRequest)">
+            <summary>
+            Opens a thread.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/open/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.RemoveAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadRemoveRequest)">
+            <summary>
+            Removes a thread.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/remove/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.RestoreAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadRestoreRequest)">
+            <summary>
+            Opens a thread.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/restore/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.SetAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadSetRequest)">
+            <summary>
+            Returns an unsorted set of threads given a list of ids.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/set/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.SetAsync(Disqus.NET.Requests.DisqusThreadSetRequest)">
+            <summary>
+            Returns an unsorted set of threads given a list of ids.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/set/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.SpamAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadSpamRequest)">
+            <summary>
+            
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/spam/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.SubscribeAsync(Disqus.NET.DisqusAccessToken,System.String)">
+            <summary>
+            
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/subscribe/</remarks>
+            <param name="accessToken"></param>
+            <param name="thread"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.SubscribeAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/subscribe/</remarks>
+            <param name="email"></param>
+            <param name="thread"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.UnsubscribeAsync(Disqus.NET.DisqusAccessToken,System.String)">
+            <summary>
+            
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/unsubscribe/</remarks>
+            <param name="accessToken"></param>
+            <param name="thread"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.UnsubscribeAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/unsubscribe/</remarks>
+            <param name="email"></param>
+            <param name="thread"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.UpdateAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadUpdateRequest)">
+            <summary>
+            Updates information on a thread.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/update/</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.VoteAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusThreadVoteRequest)">
+            <summary>
+            Register a vote on a thread.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/vote/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusThreadsApi.VoteAsync(Disqus.NET.Requests.DisqusThreadVoteRequest)">
+            <summary>
+            Register a vote on a thread.
+            </summary>
+            <remarks>https://disqus.com/api/docs/threads/vote/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusTrendsApi.ListThreadsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusTrendListThreadsRequest)">
+            <summary>
+            Returns a list of trending threads.
+            </summary>
+            <remarks>https://disqus.com/api/docs/trends/listThreads/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusTrendsApi.ListThreadsAsync(Disqus.NET.Requests.DisqusTrendListThreadsRequest)">
+            <summary>
+            Returns a list of trending threads.
+            </summary>
+            <remarks>https://disqus.com/api/docs/trends/listThreads/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Disqus.NET.IDisqusUsersApi">
+            <summary>
+            User-specific methods
+            <remarks>https://disqus.com/api/docs/users/</remarks>
+            </summary>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.CheckUsernameAsync(Disqus.NET.DisqusAccessToken,System.String)">
+            <summary>
+            Updates username for the user, fails if username does not meet requirements, or is taken by another user.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/checkUsername/</remarks>
+            <param name="accessToken"></param>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.DetailsAsync(System.Int32,System.String)">
+            <summary>
+            Lookup user by ID
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/details/</remarks>
+            <param name="userId">Looks up a user by ID</param>
+            <param name="accessToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.DetailsAsync(System.String,System.String)">
+            <summary>
+            Lookup user by username
+            </summary>
+            <param name="username"></param>
+            <param name="accessToken"></param>
+            <remarks>https://disqus.com/api/docs/users/details/</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.FollowAsync(Disqus.NET.DisqusAccessToken,System.Int32)">
+            <summary>
+            Follow a user by ID
+            </summary>
+            <param name="userId"></param>
+            <param name="accessToken"></param>
+            <remarks>https://disqus.com/api/docs/users/follow/</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.FollowAsync(Disqus.NET.DisqusAccessToken,System.String)">
+            <summary>
+            Follow a user by username
+            </summary>
+            <param name="username"></param>
+            <param name="accessToken"></param>
+            <remarks>https://disqus.com/api/docs/users/follow/</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.InterestingUsersAsync(Disqus.NET.DisqusAccessToken,System.Int32)">
+            <summary>
+            Returns a list of interesting users. 
+            This is not personalized to the user making the request. 
+            The selection of users is pulled randomly from a list of ~100 interesting users
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/interestingUsers/</remarks>
+            <param name="accessToken"></param>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.InterestingUsersAsync(System.Int32)">
+            <summary>
+            Returns a list of interesting users. 
+            This is not personalized to the user making the request. 
+            The selection of users is pulled randomly from a list of ~100 interesting users
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/interestingUsers/</remarks>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListActivityAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusUserListActivityRequest)">
+            <summary>
+            Returns a list of various activity types made by the user.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listActivity/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListActivityAsync(Disqus.NET.Requests.DisqusUserListActivityRequest)">
+            <summary>
+            Returns a list of various activity types made by the user.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listActivity/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListActiveForumsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusUserListActiveForumsRequest)">
+            <summary>
+            Returns a list of forums a user has been active on.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listActiveForums/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListActiveForumsAsync(Disqus.NET.Requests.DisqusUserListActiveForumsRequest)">
+            <summary>
+            Returns a list of forums a user has been active on.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listActiveForums/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListFollowersAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusUserListFollowersRequest)">
+            <summary>
+            Returns a list of users a user is being followed by.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listFollowers/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListFollowersAsync(Disqus.NET.Requests.DisqusUserListFollowersRequest)">
+            <summary>
+            Returns a list of users a user is being followed by.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listFollowers/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListFollowingAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusUserListFollowingRequest)">
+            <summary>
+            Returns a list of users a user is following.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listFollowing/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListFollowingAsync(Disqus.NET.Requests.DisqusUserListFollowingRequest)">
+            <summary>
+            Returns a list of users a user is following.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listFollowing/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListFollowingForumsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusUserListFollowingForumsRequest)">
+            <summary>
+            Returns a list of forums a user is following.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listFollowingForums/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListFollowingForumsAsync(Disqus.NET.Requests.DisqusUserListFollowingForumsRequest)">
+            <summary>
+            Returns a list of forums a user is following.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listFollowingForums/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListForumsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusUserListForumsRequest)">
+            <summary>
+            Returns a list of forums a user owns.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listForums/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListForumsAsync(Disqus.NET.Requests.DisqusUserListForumsRequest)">
+            <summary>
+            Returns a list of forums a user owns.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listForums/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListMostActiveForumsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusUserListMostActiveForumsRequest)">
+            <summary>
+            Returns a list of forums a user has been active on recenty, sorted by the user's activity.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listMostActiveForums/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListMostActiveForumsAsync(Disqus.NET.Requests.DisqusUserListMostActiveForumsRequest)">
+            <summary>
+            Returns a list of forums a user has been active on recenty, sorted by the user's activity.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listMostActiveForums/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListPostsAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusUserListPostsRequest)">
+            <summary>
+            Returns a list of posts made by the user.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listPosts/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ListPostsAsync(Disqus.NET.Requests.DisqusUserListPostsRequest)">
+            <summary>
+            Returns a list of posts made by the user.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/listPosts/</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.RemoveFollowerAsync(Disqus.NET.DisqusAccessToken,System.String)">
+            <summary>
+            Remove a user from set of followers.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/removeFollower/</remarks>
+            <param name="accessToken"></param>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.RemoveFollowerAsync(Disqus.NET.DisqusAccessToken,System.Int32)">
+            <summary>
+            Remove a user from set of followers.
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/removeFollower/</remarks>
+            <param name="accessToken"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ReportAsync(Disqus.NET.DisqusAccessToken,System.Int32,Disqus.NET.Requests.DisqusUserReportReason)">
+            <summary>
+            
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/report/</remarks>
+            <param name="accessToken"></param>
+            <param name="userId"></param>
+            <param name="reason"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.ReportAsync(Disqus.NET.DisqusAccessToken,System.String,Disqus.NET.Requests.DisqusUserReportReason)">
+            <summary>
+            
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/report/</remarks>
+            <param name="accessToken"></param>
+            <param name="userName"></param>
+            <param name="reason"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.UnfollowAsync(Disqus.NET.DisqusAccessToken,System.Int32)">
+            <summary>
+            Unfollow a user by ID
+            </summary>
+            <param name="userId"></param>
+            <param name="accessToken"></param>
+            <remarks>https://disqus.com/api/docs/users/unfollow/</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.UnfollowAsync(Disqus.NET.DisqusAccessToken,System.String)">
+            <summary>
+            Unfollow a user by username
+            </summary>
+            <param name="username"></param>
+            <param name="accessToken"></param>
+            <remarks>https://disqus.com/api/docs/users/follow/</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusUsersApi.UpdateProfileAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusUserUpdateProfileRequest)">
+            <summary>
+            Update user profile
+            </summary>
+            <remarks>https://disqus.com/api/docs/users/updateProfile/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusWhitelistsApi.AddAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusWhitelistAddRequest)">
+            <summary>
+            Adds an entry to the whitelist.
+            </summary>
+            <remarks>https://disqus.com/api/docs/whitelists/add/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusWhitelistsApi.ListAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusWhitelistListRequest)">
+            <summary>
+            Returns a list of all whitelist entries.
+            </summary>
+            <remarks>https://disqus.com/api/docs/whitelists/list/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.IDisqusWhitelistsApi.RemoveAsync(Disqus.NET.DisqusAccessToken,Disqus.NET.Requests.DisqusWhitelistRemoveRequest)">
+            <summary>
+            Removes an entry from the whitelist.
+            </summary>
+            <remarks>https://disqus.com/api/docs/whitelists/remove/</remarks>
+            <param name="accessToken"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusAdmin.IsVerified">
+            <summary>
+            
+            </summary>
+            <remarks>Will only return value if request is authenticated and authenticated user is admin of organization</remarks>
+        </member>
+        <member name="T:Disqus.NET.Models.DisqusCursor">
+            <summary>
+             <remarks>https://disqus.com/api/docs/cursors/</remarks>
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusForumModerator.CanAdminister">
+            <summary>
+            
+            </summary>
+            <remarks>Will only return value if request is authenticated</remarks>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusForumModerator.CanEdit">
+            <summary>
+            
+            </summary>
+            <remarks>Will only return value if request is authenticated</remarks>
+        </member>
+        <member name="T:Disqus.NET.Models.DisqusId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUser.IsBlocked">
+            <summary>
+            Whether or not the user is blocked
+            <remarks>Authentication required</remarks>
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUser.Rep">
+            <summary>
+            Calculated user reputation. Same as reputation
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUser.Reputation">
+            <summary>
+            Calculated user reputation. Same as rep.
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUser.NumFollowers">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUser.NumFollowing">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUser.NumPosts">
+            <summary>
+            The number of comments posted by the user.
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUser.NumLikesReceived">
+            <summary>
+            The number of upvotes the user has received for their comments.
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUser.NumForumsFollowing">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.Id">
+            <summary>
+            The network-wide unique ID of the user. This never changes, even if the person changes their unique username.
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.Username">
+            <summary>
+            The unique username associated with the account.
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.Name">
+            <summary>
+            The display name of the user as entered in their account settings.
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.Avatar">
+            <summary>
+            The display avatar of the user
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.Email">
+            <summary>
+            Email address of the user
+            <remarks>Will only return email if request is authenticated and authenticated user has 'email' permission</remarks>
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.EmailHash">
+            <summary>
+            Hashed email address of the user
+            <remarks>Will only return email if request is authenticated and authenticated user has 'email' permission</remarks>
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.About">
+            <summary>
+            The user's bio.
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.Joined">
+            <summary>
+            The date/time that the user created the account.
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.Location">
+            <summary>
+            Location that user specified in their account settings.
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.Url">
+            <summary>
+            The user's website URL as entered in their account settings.
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.ProfileUrl">
+            <summary>
+            The disqus.com permalink URL to their profile.
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.SignedUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.DisableThirdPartyTrackers">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.IsPrimary">
+            <summary>
+            Whether or not the user has registered any forums under this account.
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.IsPrivate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.IsPowerContributor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.IsAnonymous">
+            <summary>
+            Whether or not the user has a registered account or not
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.FlaggedForSpamReview">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.IsFollowing">
+            <summary>
+            Whether or not the person making the request is following the user.
+            <remarks>Will only return true if request is authenticated, and authenticated user has chosen to follow this user.</remarks>
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.IsFollowedBy">
+            <summary>
+            Whether or not the user follows the person making the request.
+            <remarks>Will only return true if request is authenticated, and the user has chosen to follow authenticated user.</remarks>
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.HomeOnboardingComplete">
+            <summary>
+            <remarks>Will only return value if request is authenticated</remarks>
+            </summary>
+        </member>
+        <member name="P:Disqus.NET.Models.DisqusUserBase.HomeFeedOnboardingComplete">
+            <summary>
+            <remarks>Will only return value if request is authenticated</remarks>
+            </summary>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusForumAddModeratorRequest.New(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="forum"></param>
+            <param name="username">id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusForumCreateRequest.New(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <param name="shortName">id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusForumUpdateRequest.New(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="forum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostDetailsRequest.Related(Disqus.NET.Requests.DisqusPostRelated)">
+            <summary>
+            Allow to specify relations to include with your response.
+            </summary>
+            <param name="related"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostGetContextRequest.Related(Disqus.NET.Requests.DisqusPostRelated)">
+            <summary>
+            Allow to specify relations to include with your response.
+            </summary>
+            <param name="related"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostGetContextRequest.Depth(System.Int32)">
+            <summary>
+            </summary>
+            <param name="depth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostListPopularRequest.Forum(System.String[])">
+            <summary>
+            Looks up a thread by ID
+            </summary>
+            <param name="forums"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostListPopularRequest.Forum(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="all"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostListPopularRequest.Thread(System.Int32[])">
+            <summary>
+            Looks up a thread by ID
+            </summary>
+            <param name="threads"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostListPopularRequest.Thread(System.String[])">
+            <summary>
+            Looks up a thread by link
+            </summary>
+            <param name="threadLinks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostListRequest.Thread(System.Int32[])">
+            <summary>
+            Looks up a thread by ID
+            </summary>
+            <param name="threads"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostListRequest.Thread(System.String[])">
+            <summary>
+            Looks up a thread by link
+            </summary>
+            <param name="threadLinks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostListRequest.Forum(System.String[])">
+            <summary>
+            Looks up a thread by ID
+            </summary>
+            <param name="forums"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostListRequest.Forum(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="all"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostListRequest.Start(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusPostListRequest.End(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="timestamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Disqus.NET.Requests.DisqusUserListActivityRequest.AnonymousUser(System.String)">
+            <summary>
+            Looks up an anonymous user by unique hash
+            </summary>
+            <param name="anonymousUser"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

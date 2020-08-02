@@ -485,6 +485,12 @@
             var collectedTalentShortName = $('#TalentShortNameInput').val();
             var collectedTalentRekown = $('#TalentReknownInput').val();
             var collectedTalentBio = $('#TalentBioInput').val();
+            
+            let nameid = collectedTalentShortName.replace("_", "");
+            $.ajax({
+                type: "POST",
+                url: `/api/disqus/createforum?id=${nameid}`
+            })
 
             var webFormData = new WebFormData(collectedTalentName, collectedTalentShortName, collectedTalentRekown, collectedTalentBio);
             var webFormDataInString = JSON.stringify(webFormData);

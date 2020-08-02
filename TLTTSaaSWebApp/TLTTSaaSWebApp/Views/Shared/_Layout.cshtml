@@ -34,9 +34,11 @@
                 {
                     <ul class="nav navbar-nav navbar-right">
                         <li><a>Hello, @User.Identity.Name! </a></li>
+                        <li>@Html.ActionLink("Plan", "prices", "Stripe", new { area = "" }, null)</li>
                         <li><a style="cursor:pointer;" data-bind="click: logout">Log Out</a></li>
                     </ul>
                 }
+                <input type="hidden" id="emailId" value="@User.Identity.Name"/>
             </div>
         </div>
     </div>
@@ -49,6 +51,7 @@
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/app");
     @RenderSection("scripts", required: false)
 </body>
 </html>

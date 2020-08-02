@@ -261,7 +261,6 @@ C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSD
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.Core.xml
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.DynamoDBv2.pdb
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.DynamoDBv2.xml
-C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.csprojAssemblyReference.cache
 D:\CSC\ca2-1\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\TLTTSaaSWebApp.dll.config
 D:\CSC\ca2-1\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\TLTTSaaSWebApp.dll
 D:\CSC\ca2-1\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\TLTTSaaSWebApp.pdb
@@ -394,3 +393,15 @@ D:\CSC\ca2-1\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.cspr
 D:\CSC\ca2-1\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.csproj.CopyComplete
 D:\CSC\ca2-1\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.dll
 D:\CSC\ca2-1\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.pdb
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.Glacier.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.SimpleNotificationService.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.SQS.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\Disqus.Net.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.Glacier.pdb
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.Glacier.xml
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.SimpleNotificationService.pdb
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.SimpleNotificationService.xml
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.SQS.pdb
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.SQS.xml
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\Disqus.Net.xml
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.csprojAssemblyReference.cache

@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="/Content/css/normalize.css" />
 <link rel="stylesheet" href="/Content/css/global.css" />
 <script src="https://js.stripe.com/v3/"></script>
-<script src="/Scripts/stripescript.js" defer></script>
 <nav class="flex items-center justify-between flex-wrap">
     <svg width="79px" height="24px" viewBox="0 0 79 24">
         <image onclick="window.location.href='/'"
@@ -58,11 +57,11 @@
                           class="font-bold text-xl text-gray-600"></span>
                 </div>
                 <div class="flex justify-between mt-2 mb-2 text-gray-900 font-bold text-xl cursor-pointer"
-                     onClick="changePrice()">
+                     data-bind="click: changePrice">
                     <span>Change pricing plan <span>→</span></span>
                 </div>
                 <div class="flex justify-between mt-2 mb-2 text-gray-900 font-bold text-xl cursor-pointer"
-                     onClick="cancelSubscription()">
+                     data-bind="click: cancelSubscription">
                     <span>Cancel subscription <span>→</span></span>
                 </div>
             </div>
@@ -90,7 +89,7 @@
                             </div>
                             <div class="flex justify-center mt-6">
                                 <button id="submit-free"
-                                        onClick="switchPrices('FREE')"
+                                        data-bind="click: switchPrices('FREE')"
                                         class="bg-pasha hover:bg-white outline-none hover:text-pasha hover:border hover:border-black text-white focus:bg-white focus:text-pasha font-light py-2 px-4 rounded-lg"
                                         type="submit">
                                     <div id="submit-free-button-text"
@@ -121,7 +120,7 @@
                             </div>
                             <div class="flex justify-center mt-6">
                                 <button id="submit-premium"
-                                        onClick="switchPrices('PREMIUM')"
+                                        data-bind="click: switchPrices('PREMIUM')"
                                         class="bg-pasha hover:bg-white outline-none hover:text-pasha hover:border hover:border-black text-white focus:bg-white focus:text-pasha font-light py-2 px-4 rounded-lg"
                                         type="submit">
                                     <div id="submit-premium-button-text"
@@ -155,7 +154,7 @@
                                 on <span id="new-price-start-date"></span>
                             </p>
                             <button id="confirm-price-change-submit"
-                                    onClick="confirmPriceChange()"
+                                    data-bind="click: confirmPriceChange"
                                     class="bg-pasha hover:bg-white hover:shadow-outline hover:text-pasha hover:border hover:border-black focus:shadow-outline text-white focus:bg-white focus:text-pasha font-light py-2 px-4 rounded-lg"
                                     type="submit">
                                 <div class="w-auto -mx-2 md:mx-0">
@@ -164,7 +163,7 @@
                                 </div>
                             </button>
                             <button id="confirm-price-change-cancel"
-                                    onClick="cancelChangePrice()"
+                                    data-bind="click: cancelChangePrice"
                                     class="bg-pasha hover:bg-white hover:shadow-outline hover:text-pasha hover:border hover:border-black focus:shadow-outline text-white focus:bg-white focus:text-pasha font-light py-2 px-4 rounded-lg"
                                     type="submit">
                                 <div class="w-auto -mx-2 md:mx-0">

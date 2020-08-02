@@ -8,11 +8,7 @@ namespace CSCAssignment1.Controllers
 {
     public class StripeController : Controller
     {
-        // GET: Stripe
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
         public ActionResult Account()
         {
             return View();

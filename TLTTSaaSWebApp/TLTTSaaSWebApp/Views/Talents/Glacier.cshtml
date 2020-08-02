@@ -1,0 +1,23 @@
+﻿
+
+<h2>Glacier</h2>
+Filepath: <input type="file" id="filePath" />
+<button type="button" onclick="uploadArchive()">Submit</button>
+<script>
+    function uploadArchive() {
+        let fullPath = $('#filePath').val();
+        var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+        var filename = fullPath.substring(startIndex);
+        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+            filename = filename.substring(1);
+        }
+        $.ajax({
+            type: 'POST',
+            url: `/api/Glacier/uploadArchive?filePath=${filename}`,
+        })
+        .done(function (data) {
+            console.log(data);
+        });
+    }
+
+</script>

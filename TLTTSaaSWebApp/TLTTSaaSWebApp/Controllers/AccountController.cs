@@ -116,6 +116,26 @@ namespace TLTTSaaSWebApp.Controllers
                 ExternalLoginProviders = GetExternalLogins(returnUrl, generateState)
             };
         }
+        [AllowAnonymous]
+        [Route("ChangeRole")]
+        [HttpPut]
+        public async Task<IHttpActionResult> ChangeRole(string email, string newrole)
+        {
+            try
+            {
+                // Resolve the user via their email
+                var user = await UserManager.FindByEmailAsync(email);
+                // Get the roles for the user
+                var roles = await UserManager.GetRolesAsync(user.Id);
+                UserManager.RemoveFromRole(user.Id, roles[0]);
+                UserManager.AddToRole(user.Id, newrole);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.ToString());
+            }
+        }
 
         // POST api/Account/ChangePassword
         [Route("ChangePassword")]
@@ -128,7 +148,7 @@ namespace TLTTSaaSWebApp.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -261,9 +281,9 @@ namespace TLTTSaaSWebApp.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -356,7 +376,7 @@ namespace TLTTSaaSWebApp.Controllers
             };
             Debug.WriteLine("Token: " + _MyData.response);
             Debug.WriteLine("secret key: " + _MyData.secret);
-            
+
             HttpClient client = new HttpClient();
             string urlStr = "https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}";
             string url = string.Format(urlStr, _MyData.secret, _MyData.response);
@@ -419,7 +439,7 @@ namespace TLTTSaaSWebApp.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 
 namespace TLTTSaaSWebApp.APIs
@@ -45,7 +46,7 @@ namespace TLTTSaaSWebApp.APIs
         }
 
         [HttpGet]
-        [Route("api/Dynamo/RetrieveAccount/{email}")]
+        [Route("api/Dynamo/RetrieveAccount")]
         public async Task<IHttpActionResult> GetAsync(string email)
         {
             using (IAmazonDynamoDB ddbClient = new AmazonDynamoDBClient())
