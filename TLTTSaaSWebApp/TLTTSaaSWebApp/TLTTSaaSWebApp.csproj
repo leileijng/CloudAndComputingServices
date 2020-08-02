@@ -67,6 +67,7 @@
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=8.0.20.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="Stripe.net, Version=37.16.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Stripe.net.37.16.0\lib\net461\Stripe.net.dll</HintPath>
     </Reference>
@@ -278,7 +279,9 @@
     <Compile Include="Models\CreateCustomerRequest.cs" />
     <Compile Include="Models\CreateCustomerResponse.cs" />
     <Compile Include="Models\CreateSubscriptionRequest.cs" />
+    <Compile Include="Models\Helpers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\RDSContext.cs" />
     <Compile Include="Models\RetrieveCustomerPaymentMethodRequest.cs" />
     <Compile Include="Models\RetrieveUpcomingInvoiceRequest.cs" />
     <Compile Include="Models\RetryInvoiceRequest.cs" />
@@ -680,6 +683,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="MySql\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
