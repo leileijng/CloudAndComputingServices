@@ -23,5 +23,8 @@ namespace TLTTSaaSWebApp.Models
 
         [Required]
         public string Bio { get; set; }
+        
+        [Required]
+        public string Photo { get; set; }
     }
 }
