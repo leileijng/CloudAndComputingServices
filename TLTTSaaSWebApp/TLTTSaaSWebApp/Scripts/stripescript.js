@@ -404,7 +404,7 @@ function ViewModel() {
                     url: `/api/Account/Verify`,
                     contentType: 'application/json; charset=utf-8',
                     data: JSON.stringify(data)
-                }).done(function (data) {
+                }).done(async function (data) {
                     console.log("Register verification result");
                     console.log(data);
                     if (data.success) {
@@ -416,13 +416,13 @@ function ViewModel() {
                             Password: self.registerPassword(),
                             ConfirmPassword: self.registerPassword2()
                         };
-                        $.ajax({
+                        await $.ajax({
                             type: 'POST',
                             url: `/api/Account/Register`,
                             contentType: 'application/json; charset=utf-8',
                             data: JSON.stringify(data)
-                        }).done(function (data) {
-                            self.result("Done!");
+                        }).done(async function (data) {
+                            await self.result("Done!");
                         }).fail(showError);
                     }
                     else {

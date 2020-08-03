@@ -225,6 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIs\BillingController.cs" />
+    <Compile Include="APIs\CognitoController.cs" />
     <Compile Include="APIs\DisqusController.cs" />
     <Compile Include="APIs\DynamoController.cs" />
     <Compile Include="APIs\GlacierController.cs" />
@@ -359,6 +360,7 @@
     <Content Include="Scripts\fonts\themify-icons\fonts\themify9f24.eot" />
     <Content Include="Scripts\fonts\themify-icons\fonts\themifyd41d.eot" />
     <Content Include="Scripts\fonts\weather-icons\fonts\weathericons-regular-webfont.eot" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fonts\circular-std\style.css" />
     <Content Include="Scripts\fonts\flag-icon-css\flag-icon.min.css" />

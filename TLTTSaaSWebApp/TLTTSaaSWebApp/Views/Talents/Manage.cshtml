@@ -120,7 +120,8 @@
     #uploadhover {
         cursor: pointer;
     }
-     .editImgbutton {
+
+    .editImgbutton {
         position: absolute;
         width: 200px;
         left: 0;
@@ -158,11 +159,13 @@
                     <thead>
                         <tr>
                             <th>id</th>
+                            <th>Photo</th>
                             <th>Name</th>
                             <th>Short Name</th>
-                            <th>Details</th>
                             <th>Edit</th>
                             <th>Delete</th>
+                            <th>Details</th>
+                            <th>Comment</th>
                         </tr>
                     </thead>
                     <tbody id="talentsTableBody"></tbody>
@@ -187,7 +190,7 @@
                     <input onchange="return fileValidation()" type="file" id="fileInput" style="padding: 2px;" />
                     <div class="form-group">
                         <div class="imgContainer" style="display:none;">
-                            <img id="changeImage" style="width:200px;"/>
+                            <img id="changeImage" style="width:200px;" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -296,7 +299,7 @@
                     <div class="imgContainer">
                         <img alt="upload" style="width:200px; margin-top: -14px;" id="editPhoto">
                         <div onclick="$('#newphoto').click();" class="editImgbutton"><a href="#"> Change Photo </a></div>
-                        <input id='newphoto' onchange="editPhoto(this); del = true;" type='file' style="display: none;" />
+                        <input id='newphoto' onchange="editPhotoFunction(this); del = true;" type='file' style="display: none;" />
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-5" for="UpdateTalentNameInput">Name</label>
@@ -369,11 +372,105 @@
     <script src="~/Scripts/noty/themes/default.js"></script>
     <script src="~/Scripts/noty/themes/relax.js"></script>
     <script src="~/Scripts/noty/layouts/topRight.js "></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+    <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js">
+        const Clarifai = require('clarifai');
+    </script>
+
+    <script>
+        //sets the lowest acceptable SFW value (on a scale from 0 to 1) which will pass the test.
+        var SFW_LOWER_LIMIT = 0.8;
+        //Initialise App
+        const app1 = new Clarifai.App({
+            apiKey: 'e088950966af4bb78c6fce692fd87bf5'
+        });
+
+        function validateFileInputs(image) {
+            //stateClass("working");
+            app1.models.predict(Clarifai.NSFW_MODEL, { base64: image }).then(
+                function (response) {
+                    console.dir(response);
+                    var pass;
+                    concepts = response.outputs[0].data.concepts;
+                    console.dir(concepts);
+                    for (var i = 0; i < concepts.length; i++) {
+                        if (concepts[i].name == "sfw") {
+                            pass = Boolean(concepts[i].value > SFW_LOWER_LIMIT);
+                            console.dir("equals to  " + pass);
+                        }
+                    }
+                    parseResponse(pass);
+                },
+                function (err) { console.log(err); }
+            )
+        };
+        /**
+          * INPUT: A boolean value
+          * OUTPUT: Visual feedback on form input
+          ---
+          * This function takes the result of checking whether the image is SFW
+          * It then calls stateClass, which removes all state classes and adds the one it is passed.
+        **/
+        function parseResponse(pass) {
+            if (pass === true) {
+                //stateClass("approved");
+                //clarifaiCheckPass();
+                alert("pass NSFW verification");
+            } else {
+                //stateClass("rejected");
+                //clarifaiCheckFail();
+                alert("fail");
+            }
+        }
+    </script>
 
     <script>
         loadTalentsData();
+        //Bucket Configurations
+        var bucketName = 'spcscca2';
+        var bucketRegion = 'us-east-1';
+        var IdentityPoolId = "us-east-1:a20b1a53-df5c-4c6f-b110-e06d14830c69";
+        AWS.config.update({
+            region: bucketRegion,
+            credentials: new AWS.CognitoIdentityCredentials({
+                IdentityPoolId: IdentityPoolId
+            })
+        });
+        var s3 = new AWS.S3({
+            apiVersion: '2006-03-01',
+            params: { Bucket: bucketName }
+        });
+        function addRecord() {
+            var s3 = new AWS.S3({
+                params: { Bucket: 'spcscca2' }
+            });
+            var file = document.getElementById('fileInput').files[0];
+            var fileUrl = 'https://' + bucketName + '.s3.amazonaws.com/' + file.name;
 
+            if (file) {
+                console.log("ready to upload!");
+                s3.putObject({
+                    Key: file.name,
+                    ContentType: file.type,
+                    Body: file,
+                    ACL: "public-read"
+                },
+                    function (err, data) {
+                        if (data !== null) {
+                            alert("Got it!");
+                            uploadToRDS(fileUrl);
+                        }
+                        else {
+                            alert("Upload failed!");
+                        }
+                    });
+            }
+            else {
+                console.log("cannot find");
+            }
+        }
         function loadTalentsData() {
+            var urlForCloudImage = "https://res.cloudinary.com/dwkibjxo5/image/upload/v1592819729/";
             $loadTalentsDataHandler = jQuery.ajax({
                 url: '/api/talents',
                 method: 'GET',
@@ -394,7 +491,6 @@
                 }
             }).done(function (data, textStatus, jqXHR) {
                 console.log(data);
-
                 var talentsList = data;
                 var talentId = "";
                 var talent;
@@ -405,95 +501,68 @@
                 var $tableElement = null;
                 var $cellElement = null;
                 var $rowElement = null;
-                //-------- Find the table element -----------
-                //I am using the $tableElement variable
-
                 $tableBodyElement = $('#talentsTableBody');
-
-                //I want to build rows and cells (using tr and td HTML elements) so that
-
-                //$tableBodyElement variable to represent (reference) the table element.
-
-                //-------- Begin creating <tr> and <td> HTML element ------
                 for (index = 0; index < talentsList.length; index++) {
-
                     talent = talentsList[index];
-
                     talentId = talent.Id;
                     talentName = talent.Name;
                     talentShortName = talent.ShortName;
                     talentReknown = talent.Reknown;
                     talentBio = talent.Bio;
-
-                    //Create new HTML <tr> element.
-                    //At the same time let the $rowElement variable to represent it.
                     $rowElement = $('<tr></tr>');
-
                     $cellElement = $('<td></td>', { text: talentId });
                     $rowElement.append($cellElement);
-
+                    $cellElement = $('<td></td>');
+                    //$imgElement = $(`<img src='${urlForCloudImage + talent.ShortName + "_tn.jpg"}'>`);
+                    $imgElement = $(`<img src='${talent.Photo}'>`);
+                    $cellElement.append($imgElement);
+                    $rowElement.append($cellElement);
                     $cellElement = $('<td></td>', { text: talentName });
                     $rowElement.append($cellElement);
-
                     $cellElement = $('<td></td>', { text: talentShortName });
                     $rowElement.append($cellElement);
-
-                   $hyperLinkElement = $('<a class="details" href="/Talents/Details/' + talentId + '">Details</button>').addClass('btn btn-warning');
-
-                    $cellElement = $('<td></td>');
-
-                    $cellElement.append($hyperLinkElement);
-
-                    $rowElement.append($cellElement);
-
                     $hyperLinkElement = $('<a class="edit" data-toggle="modal" onclick="loadEdit(' + talentId + ')"><i class="fa fa-edit"></i></a>').attr("href", "#editModal");
-
                     $cellElement = $('<td></td>');
-
                     $cellElement.append($hyperLinkElement);
-
                     $rowElement.append($cellElement);
-
                     $hyperLinkElement = $('<a class="trigger-btn" data-toggle="modal" onclick="loadDelete(' + talentId + ')"><i class="fa fa-trash mr-1"></i></a>').attr("href", "#myModal");
-
                     $cellElement = $('<td></td>');
-
                     $cellElement.append($hyperLinkElement);
-
+                    $rowElement.append($cellElement);
+                    $hyperLinkElement = $('<a class="details" href="/Talents/Details/' + talentId + '">Details</button>').addClass('btn btn-warning');
+                    $cellElement = $('<td></td>');
+                    $cellElement.append($hyperLinkElement);
+                    $rowElement.append($cellElement);
+                    $hyperLinkElement = $('<a class="details" href="/Talents/Comment/' + talentId + '">Comment</button>').addClass('btn btn-info');
+                    $cellElement = $('<td></td>');
+                    $cellElement.append($hyperLinkElement);
                     $rowElement.append($cellElement);
                     //Insert the $rowElement into the table element represented by $tableElement.
                     $tableBodyElement.append($rowElement);
-
                 }//end of for loop.
             }//end of JavaScript anonymous function
             )//end of the done() method;
-
         }
-
-        function WebFormData(inName, inShortName, inReknown, inBio) {
+        function WebFormData(inName, inShortName, inReknown, inBio, inPhoto) {
             this.Name = inName;
             this.ShortName = inShortName;
             this.Reknown = inReknown;
             this.Bio = inBio;
+            this.Photo = inPhoto;
         }
 
-
-        function addRecord() {
+        function uploadToRDS(PhotoUrl) {
             $(`#createSpinner`).removeClass("hidden");
             $(`#addButton`).attr("disabled", true);
             var collectedTalentName = $('#TalentNameInput').val();
             var collectedTalentShortName = $('#TalentShortNameInput').val();
             var collectedTalentRekown = $('#TalentReknownInput').val();
             var collectedTalentBio = $('#TalentBioInput').val();
-            
-            let nameid = collectedTalentShortName.replace("_", "");
-            $.ajax({
-                type: "POST",
-                url: `/api/disqus/createforum?id=${nameid}`
-            })
 
-            var webFormData = new WebFormData(collectedTalentName, collectedTalentShortName, collectedTalentRekown, collectedTalentBio);
+            console.log(PhotoUrl);
+            var webFormData = new WebFormData(collectedTalentName, collectedTalentShortName, collectedTalentRekown, collectedTalentBio, PhotoUrl);
             var webFormDataInString = JSON.stringify(webFormData);
+            console.log(webFormData);
 
             $saveTalentHandler = jQuery.ajax({
                 type: 'POST',
@@ -514,8 +583,7 @@
                 },
                 contentType: 'application/json',
                 data: webFormDataInString
-            })
-
+            });
             $saveTalentHandler.done(function (data, textStatus, jqXHR) {
                 new noty({
                     text: "A new Talent record is created successfully",
@@ -531,7 +599,6 @@
                     layout: 'center'
                 }).show();
             });
-
             $saveTalentHandler.fail(function (jqXHR, textStatus) {
                 new noty({
                     text: jqXHR.responseText,
@@ -546,11 +613,9 @@
                     },
                     type: 'error'
                 }).show();
-
             });
         }
-
-        //File Validation & Displaying picture 
+        //File Validation & Displaying picture
         function fileValidation() {
             var fileInput = document.getElementById('fileInput');
             var filePath = fileInput.value;
@@ -566,19 +631,18 @@
                     reader.onload = function (e) {
                         $('#changeImage')
                             .attr('src', e.target.result);
+                        $(`.imgContainer`).css("display", "block");
+                        let image = e.target.result;
+                        image = image.replace("data:image/jpeg;base64,", "");
+                        validateFileInputs(image);
                     };
                     reader.readAsDataURL(fileInput.files[0]);
-                    $(`.imgContainer`).css("display", "block");
                 }
             }
-}
-
-
-            //jiang lei's cloudinary
-          var urlForCloudImage = "https://res.cloudinary.com/dwkibjxo5/image/upload/v1592819729/";
-
+        }
+        //jiang lei's cloudinary
+        var urlForCloudImage = "https://res.cloudinary.com/dwkibjxo5/image/upload/v1592819729/";
         /*function loadDetails(id) {
-
             $.ajax({
                 type: "GET",
                 url: `/API/Talents/${id}`,
@@ -599,26 +663,19 @@
                 success: function (data) {
                     console.log(data);
                     var talent = data;
-
-
                     var loadedDetailsTalentName = talent.Name;
                     var loadedDetailsTalentShortName = talent.ShortName;
                     var loadedDetailsTalentReknown = talent.Reknown;
                     var loadedDetailsTalentBio = talent.Bio;
-
                     //Populate the respective input controls with the talent details.
-
                     $('#DetailsTalentpicInput').attr("src", urlForCloudImage + talent.ShortName + "_tn.jpg");
                     $('#DetailsTalentNameInput').val(loadedDetailsTalentName);
                     $('#DetailsTalentShortNameInput').val(loadedDetailsTalentShortName);
                     $('#DetailsTalentReknownInput').val(loadedDetailsTalentReknown);
                     $('#DetailsTalentBioInput').val(loadedDetailsTalentBio);
-
                 }
-
             });
         }*/
-
         function loadEdit(id) {
             $.ajax({
                 type: "GET",
@@ -645,10 +702,8 @@
                     var loadedTalentReknown = talent.Reknown;
                     var loadedTalentBio = talent.Bio;
                     var loadedTalentID = talent.Id
-
                     //Populate the respective input controls with the talent details.
-
-                    $('#editPhoto').attr("src", urlForCloudImage + talent.ShortName + "_tn.jpg");
+                    $('#editPhoto').attr("src", talent.Photo);
                     $('#UpdateTalentNameInput').val(loadedTalentName);
                     $('#UpdateTalentShortNameInput').val(loadedTalentShortName);
                     $('#UpdateTalentReknownInput').val(loadedTalentReknown);
@@ -658,27 +713,22 @@
                 error: function () {
                     alert("Fail to get data for Talent " + id);
                 }
-
             });
         }
-
         //Replace picture in the edit modal
-        function editPhoto(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        $('#editPhoto')
-                            .attr('src', e.target.result);
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                
+        function editPhotoFunction(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#editPhoto')
+                        .attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
             }
         }
-
         //reset edit modal
         function resetEdit() {
             var id = $(`#editId`).val();
-
             $.ajax({
                 type: "GET",
                 url: `/API/talents/${id}`,
@@ -708,8 +758,37 @@
                 }
             });
         }
-
         function updateTalent() {
+            var s3 = new AWS.S3({
+                params: { Bucket: 'spcscca2' }
+            });
+            var file = document.getElementById('newphoto').files[0];
+            if (file) {
+                var fileUrl = 'https://' + bucketName + '.s3.amazonaws.com/' + file.name;
+                console.log("ready to change photo!");
+                s3.putObject({
+                    Key: file.name,
+                    ContentType: file.type,
+                    Body: file,
+                    ACL: "public-read"
+                },
+                    function (err, data) {
+                        if (data !== null) {
+                            alert("Got it!");
+                            updateToRDS(fileUrl);
+                        }
+                        else {
+                            alert("Upload failed!");
+                        }
+                    });
+            }
+            else {
+                console.log("photo does not change");
+                var url = $('#editPhoto').attr("src");
+                updateToRDS(url);
+            }
+        }
+        function updateToRDS(photoURLToUpdate) {
             $(`#updateEditSpinner`).removeClass("hidden");
             $(`#saveButton`).attr("disabled", true);
             var collectedTalentName = $('#UpdateTalentNameInput').val();
@@ -717,10 +796,16 @@
             var collectedTalentRekown = $('#UpdateTalentReknownInput').val();
             var collectedTalentBio = $('#UpdateTalentBioInput').val();
             var collectedTalentID = $('#editId').val();
-
-            var webFormData = new WebFormData(collectedTalentName, collectedTalentShortName, collectedTalentRekown, collectedTalentBio, collectedTalentID);
+            let nameid = collectedTalentShortName.replace("_", "");
+            $.ajax({
+                type: "POST",
+                url: `/api/disqus/createforum?id=${nameid}`
+            })
+            console.log(photoURLToUpdate);
+            console.log("HERE WHYYY");
+            var webFormData = new WebFormData(collectedTalentName, collectedTalentShortName, collectedTalentRekown, collectedTalentBio, photoURLToUpdate);
             var webFormDataInString = JSON.stringify(webFormData);
-
+            console.log(webFormData);
             $updateTalentHandler = jQuery.ajax({
                 type: 'PUT',
                 url: `/API/talents/${collectedTalentID}`,
@@ -740,7 +825,6 @@
                 },
                 data: webFormDataInString
             })
-
             $updateTalentHandler.done(function (textStatus, jqXHR) {
                 new noty({
                     text: "the Talent record is updated successfully",
@@ -756,7 +840,6 @@
                     layout: 'center'
                 }).show();
             });
-
             $updateTalentHandler.fail(function (jqXHR, textStatus) {
                 new noty({
                     text: jqXHR.responseText,
@@ -772,9 +855,7 @@
                     type: 'error'
                 }).show();
             });
-
         }
-
         //Loading delete modal
         function loadDelete(id) {
             $.ajax({
@@ -804,7 +885,6 @@
                 }
             });
         }
-
         //Delete record in the backend and frontend
         function deleteRecord() {
             var id = $("#deleteId").val();
@@ -837,7 +917,8 @@
                         }
                     }
                 }).show();
-            }).fail(function () {
+            }).fail(function (data) {
+                console.log(data);
                 new noty({
                     text: "Fail to delete!",
                     theme: 'bootstrapTheme',
@@ -847,6 +928,5 @@
                 }).show();
             });
         }
-
     </script>
 }

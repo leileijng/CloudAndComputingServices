@@ -18,10 +18,10 @@ namespace TLTTSaaSWebApp.APIs
         {
             try
             {
-                var disqus = new DisqusApi(DisqusAuthMethod.SecretKey, "XedGyVIwIrInXSosRK1nTQNj5oSvPfMrY1MP941uQJkUhNOU6usidjNPk1ddy8tc");
+                var disqus = new DisqusApi(DisqusAuthMethod.SecretKey, "sK1KCvZWQi0AdyjTMlabYSokcxsOWNNNF48fXpVK4EbU79z0unBTJr3fNXq8ubAW");
                 var request = DisqusForumCreateRequest.New(id, id);
                 var response = await disqus.Forums
-                                .CreateAsync(DisqusAccessToken.Create("e536487e23e24f23bb306391858ceb5f"), request)
+                                .CreateAsync(DisqusAccessToken.Create("d9f8c170020040769ff7b7e92e81565f"), request)
                                 .ConfigureAwait(false);
                 return Ok(response);
             }

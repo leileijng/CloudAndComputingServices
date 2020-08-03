@@ -405,3 +405,14 @@ C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSD
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.SQS.xml
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\Disqus.Net.xml
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\obj\Debug\TLTTSaaSWebApp.csprojAssemblyReference.cache
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\MySql.Data.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\Google.Protobuf.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\Zstandard.Net.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\K4os.Compression.LZ4.Streams.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\BouncyCastle.Crypto.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\Ubiety.Dns.Core.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\Renci.SshNet.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\System.Buffers.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\K4os.Compression.LZ4.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\K4os.Hash.xxHash.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\MySql.Data.xml
