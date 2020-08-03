@@ -416,3 +416,13 @@ C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\Syste
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\K4os.Compression.LZ4.dll
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\K4os.Hash.xxHash.dll
 C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\MySql.Data.xml
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\Amazon.Extensions.CognitoAuthentication.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.CognitoIdentity.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.CognitoIdentityProvider.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.SecurityToken.dll
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.CognitoIdentity.pdb
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.CognitoIdentity.xml
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.CognitoIdentityProvider.pdb
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.CognitoIdentityProvider.xml
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.SecurityToken.pdb
+C:\Users\Franky\Documents\GitHub\csc_ca2\TLTTSaaSWebApp\TLTTSaaSWebApp\bin\AWSSDK.SecurityToken.xml

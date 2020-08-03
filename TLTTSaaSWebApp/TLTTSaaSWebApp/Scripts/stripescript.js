@@ -75,22 +75,30 @@ function ViewModel() {
                     if (data.success) {
                         self.result('');
                         self.errors.removeAll();
-
-                        var loginData = {
-                            grant_type: 'password',
-                            username: self.loginEmail(),
-                            password: self.loginPassword()
-                        };
-
+                        var data1 = new WebFormData(self.loginEmail(), self.loginPassword());
+                        console.log(data1);
+                        
                         $.ajax({
                             type: 'POST',
-                            url: '/Token',
-                            data: loginData
+                            url: `/api/cognito/signin`,
+                            contentType: 'application/json; charset=utf-8',
+                            data: JSON.stringify(data1)
                         }).done(function (data) {
-                            self.user(data.userName);
-                            // Cache the access token in session storage.
-                            sessionStorage.setItem(tokenKey, data.access_token);
-                            window.location.href = "/Talents/Manage";
+                            var loginData = {
+                                grant_type: 'password',
+                                username: self.loginEmail(),
+                                password: self.loginPassword()
+                            };
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Token',
+                                data: loginData
+                            }).done(function (data) {
+                                self.user(data.userName);
+                                // Cache the access token in session storage.
+                                sessionStorage.setItem(tokenKey, data.access_token);
+                                window.location.href = "/Talents/Manage";
+                            }).fail(showError);
                         }).fail(showError);
                     }
                     else {
@@ -184,7 +192,7 @@ function ViewModel() {
                 // Create customer
                 createCustomer().then((result) => {
                     customer = result.customer;
-                    window.location.href = `/Home/Login?customer=${customer.id}`;
+                    window.location.href = `/Home/Login`;
                 });
             });
         }
@@ -283,6 +291,7 @@ function ViewModel() {
                                     priceId: priceId,
                                 });
                             } else {
+                                console.log(result.paymentMethod.id)
                                 // Create the subscription
                                 createSubscription({
                                     customerId: customerId,
@@ -410,19 +419,28 @@ function ViewModel() {
                     if (data.success) {
                         self.result('');
                         self.errors.removeAll();
-
-                        var data = {
-                            Email: self.registerEmail(),
-                            Password: self.registerPassword(),
-                            ConfirmPassword: self.registerPassword2()
-                        };
+                        var data1 = new WebFormData(self.registerEmail(), self.registerPassword());
+                        console.log(data1);
                         await $.ajax({
                             type: 'POST',
-                            url: `/api/Account/Register`,
+                            url: `/api/cognito/signup`,
                             contentType: 'application/json; charset=utf-8',
-                            data: JSON.stringify(data)
-                        }).done(async function (data) {
-                            await self.result("Done!");
+                            data: JSON.stringify(data1)
+                        }).done(async function (d) {
+                            var data = {
+                                Email: self.registerEmail(),
+                                Password: self.registerPassword(),
+                                ConfirmPassword: self.registerPassword2()
+                            };
+                            await $.ajax({
+                                type: 'POST',
+                                url: `/api/Account/Register`,
+                                contentType: 'application/json; charset=utf-8',
+                                data: JSON.stringify(data)
+                            }).done(async function (d) {
+                               
+                                await self.result("Done!");
+                            }).fail(showError);
                         }).fail(showError);
                     }
                     else {
@@ -466,6 +484,10 @@ function ViewModel() {
             .then((result) => {
                 return result;
             });
+    }
+    function WebFormData(email, password) {
+        this.email = email;
+        this.password = password;
     }
     function handleCustomerActionRequired({
         subscription,
