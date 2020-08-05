@@ -15,7 +15,7 @@ using MySql.Data.MySqlClient;
 
 namespace TLTTSaaSWebApp.APIs
 {
-    [Authorize]
+   
     public class TalentsController : ApiController
     {
         static readonly TalentRepository repository = new TalentRepository();
@@ -38,7 +38,6 @@ namespace TLTTSaaSWebApp.APIs
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpGet]
         [Route("api/talents")]
-        [AllowAnonymous]
         public List<Talent> GetAllTalents()
         {
             List<Talent> talentsToReturn = new List<Talent>();
@@ -76,7 +75,6 @@ namespace TLTTSaaSWebApp.APIs
 
         [HttpGet]
         [Route("api/talents/{id:int}", Name = "getTalentById")]
-        [AllowAnonymous]
         public Talent GetTalent(int id)
         {
             Talent t = new Talent();
@@ -114,7 +112,6 @@ namespace TLTTSaaSWebApp.APIs
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpPost]
         [Route("api/talents")]
-        [AllowAnonymous]
         public IHttpActionResult PostTalent(Talent item)
         {
             if (!(String.IsNullOrWhiteSpace(item.Name) || String.IsNullOrWhiteSpace(item.ShortName) ||
@@ -152,7 +149,6 @@ namespace TLTTSaaSWebApp.APIs
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpPut]
         [Route("api/talents/{id:int}")]
-        [AllowAnonymous]
         public IHttpActionResult PutTalent(int id, Talent item)
         {
             if (!(String.IsNullOrWhiteSpace(item.Name) || String.IsNullOrWhiteSpace(item.ShortName) ||
@@ -188,7 +184,6 @@ namespace TLTTSaaSWebApp.APIs
 
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpDelete]
-        [AllowAnonymous]
         [Route("api/talents/{id:int}")]
         public IHttpActionResult DeleteTalent(int id)
         {

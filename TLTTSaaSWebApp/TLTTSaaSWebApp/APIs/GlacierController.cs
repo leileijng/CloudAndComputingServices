@@ -12,6 +12,7 @@ namespace TLTTSaaSWebApp.APIs
 {
     public class GlacierController : ApiController
     {
+        [Authorize(Roles = "Premium,Free")]
         [HttpPost]
         [Route("api/glacier/uploadArchive")]
         public IHttpActionResult uploadArchive(string filePath)

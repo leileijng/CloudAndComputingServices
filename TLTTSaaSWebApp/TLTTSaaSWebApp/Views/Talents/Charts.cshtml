@@ -1,0 +1,359 @@
+﻿
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="country">
+                            <select id="cityName">
+                                <option>AU</option>
+                                <option>US</option>
+                                <option>JP</option>
+                                <option>KR</option>
+                                <option>SG</option>
+                            </select>
+                            <input type="button" class="btn btn-primary" id="getChartButton" value="Get Chart" />
+                        </div>
+                        <div id="bar_chart_us" style="width: 900px; height: 500px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="countries">
+                            <select id="cityNameCompare1">
+                                <option>AU</option>
+                                <option>US</option>
+                                <option>JP</option>
+                                <option>KR</option>
+                                <option>SG</option>
+                            </select>
+                            <select id="cityNameCompare2">
+                                <option>AU</option>
+                                <option>US</option>
+                                <option>JP</option>
+                                <option>KR</option>
+                                <option>SG</option>
+                            </select>
+                            <input type="button" class="btn btn-primary" id="getLineChartButton" value="Get Chart" />
+                        </div>
+                        <div id="line_chart_compare" style="width: 900px; height: 500px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+        <style>
+            svg {
+                width: 920px !important;
+            }
+
+            #country {
+                margin-bottom: 18px;
+            }
+
+            #countries {
+                margin-bottom: 18px;
+            }
+        </style>
+        <!--**********************************
+           Scripts
+       ***********************************-->
+        <script src="~/plugins/common/common.min.js"></script>
+        <script src="~/js/custom.min.js"></script>
+        <script src="~/js/settings.js"></script>
+        <script src="~/js/gleek.js"></script>
+        <script src="~/js/styleSwitcher.js"></script>
+
+        <!-- Chartjs -->
+        <script src="~/plugins/chart.js/Chart.bundle.min.js"></script>
+        <!-- Circle progress -->
+        <script src="~/plugins/circle-progress/circle-progress.min.js"></script>
+        <!-- Datamap -->
+        <script src="~/plugins/d3v3/index.js"></script>
+        <script src="~/plugins/topojson/topojson.min.js"></script>
+        <script src="~/plugins/datamaps/datamaps.world.min.js"></script>
+        <!-- Pignose Calender -->
+        <script src="~/plugins/moment/moment.min.js"></script>
+        <script src="~/plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+        <!-- ChartistJS -->
+        <script src="~/plugins/chartist/js/chartist.min.js"></script>
+        <script src="~/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+
+
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            $(document).ready(function () {
+                //generate chart
+                google.charts.load('current', { 'packages': ['bar'] });
+                google.charts.setOnLoadCallback(drawBarChart);
+
+                //generate chart
+                google.charts.load('current', { 'packages': ['line'] });
+                google.charts.setOnLoadCallback(drawLineChart);
+
+                $('#menuCharts').addClass("active");
+
+            });
+
+            $('#getChartButton').on('click', getSelectCountries);
+            $('#getLineChartButton').on('click', getCompareCountries);
+
+            function getSelectCountries() {
+                var cityName = $(`#cityName`).val();
+
+                $.ajax({
+                    type: "GET",
+                    url: "https://api.smartable.ai/coronavirus/stats/" + cityName,
+
+                    // Request headers
+                    beforeSend: function (xhrObj) {
+                        xhrObj.setRequestHeader("Cache-Control", "no-cache");
+                        xhrObj.setRequestHeader("Subscription-Key", "4b0c49b6a66c4777a54eb99935578a65");
+                    },
+                })
+                    .done(function (data) {
+                        console.log(data);
+                        var i;
+                        var historicdata = data.stats.history;
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('date', 'Date');
+                        data.addColumn('number', 'Confirmed Cases in ' + cityName);
+                        data.addColumn('number', 'Death in ' + cityName);
+                        data.addColumn('number', 'Recovered Cases in ' + cityName);
+                        var dataRows = [];
+                        for (i = historicdata.length - 7; i < historicdata.length; i++) {
+                            var dateTobeProessed = new Date(historicdata[i].date);
+                            var Year = dateTobeProessed.getFullYear();
+                            var Month = dateTobeProessed.getMonth() + 1;
+                            var Day = dateTobeProessed.getDate();
+                            var convertedDate = new Date(Year, Month, Day);
+                            dataRows.push([convertedDate, historicdata[i].confirmed, historicdata[i].deaths, historicdata[i].recovered]);
+                            console.log(historicdata[i]);
+                        }
+                        console.log(dataRows);
+                        data.addRows(dataRows);
+                        var options = {
+                            chart: {
+                                title: 'Covid-19 Situation in ' + cityName
+                            },
+                            width: 900,
+                            height: 500
+                        };
+
+                        var chart = new google.charts.Bar(document.getElementById('bar_chart_us'));
+
+                        chart.draw(data, google.charts.Bar.convertOptions(options));
+
+
+                    })
+                    .fail(function () {
+                        alert("error");
+                    });
+
+
+            }
+
+            function getCompareCountries() {
+                var cityName1 = $(`#cityNameCompare1`).val();
+                var cityName2 = $(`#cityNameCompare2`).val();
+
+                var dataTable = new google.visualization.DataTable();
+                dataTable.addColumn('date', 'Date');
+                dataTable.addColumn('number', 'Confirmed Cases in ' + cityName1);
+                dataTable.addColumn('number', 'Confirmed Cases in ' + cityName2);
+                $.ajax({
+                    type: "GET",
+                    url: "https://api.smartable.ai/coronavirus/stats/" + cityName1,
+
+                    // Request headers
+                    beforeSend: function (xhrObj) {
+                        xhrObj.setRequestHeader("Cache-Control", "no-cache");
+                        xhrObj.setRequestHeader("Subscription-Key", "4b0c49b6a66c4777a54eb99935578a65");
+                    },
+                })
+                    .done(function (data) {
+                        var i;
+                        var historicdata = data.stats.history;
+                        var dataRows1 = [];
+                        for (i = historicdata.length - 7; i < historicdata.length; i++) {
+                            dataRows1.push(historicdata[i].confirmed);
+                        }
+                        $.ajax({
+                            type: "GET",
+                            url: "https://api.smartable.ai/coronavirus/stats/" + cityName2,
+
+                            // Request headers
+                            beforeSend: function (xhrObj) {
+                                xhrObj.setRequestHeader("Cache-Control", "no-cache");
+                                xhrObj.setRequestHeader("Subscription-Key", "4b0c49b6a66c4777a54eb99935578a65");
+                            },
+                        })
+                            .done(function (data) {
+                                var x;
+                                var historicdata = data.stats.history;
+                                var dataRows = [];
+                                var a = 0;
+                                for (x = historicdata.length - 7; x < historicdata.length; x++) {
+                                    var dateTobeProessed = new Date(historicdata[x].date);
+                                    var Year = dateTobeProessed.getFullYear();
+                                    var Month = dateTobeProessed.getMonth() + 1;
+                                    var Day = dateTobeProessed.getDate();
+                                    var convertedDate = new Date(Year, Month, Day);
+                                    dataRows.push([convertedDate, historicdata[x].confirmed, dataRows1[a]]);
+                                    a++;
+                                }
+                                console.log(dataRows);
+
+                                dataTable.addRows(dataRows);
+                                var options = {
+                                    chart: {
+                                        title: 'Confirmaed Cases in ' + cityName1 + ' and ' + cityName2
+                                    },
+                                    width: 900,
+                                    height: 500
+                                };
+
+                                var chart = new google.charts.Line(document.getElementById('line_chart_compare'));
+
+                                chart.draw(dataTable, google.charts.Line.convertOptions(options));
+
+                            })
+                            .fail(function () {
+                                alert("error");
+                            });
+
+                    })
+                    .fail(function () {
+                        alert("error");
+                    });
+            }
+
+
+
+            function drawBarChart() {
+                $.ajax({
+                    type: "GET",
+                    url: "https://api.smartable.ai/coronavirus/stats/US",
+
+                    // Request headers
+                    beforeSend: function (xhrObj) {
+                        xhrObj.setRequestHeader("Cache-Control", "no-cache");
+                        xhrObj.setRequestHeader("Subscription-Key", "4b0c49b6a66c4777a54eb99935578a65");
+                    },
+                })
+                    .done(function (data) {
+                        var i;
+                        var historicdata = data.stats.history;
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('date', 'Date');
+                        data.addColumn('number', 'Confirmed Cases in US');
+                        data.addColumn('number', 'Death in US');
+                        data.addColumn('number', 'Recovered Cases in US');
+                        var dataRows = [];
+                        for (i = historicdata.length - 7; i < historicdata.length; i++) {
+                            var dateTobeProessed = new Date(historicdata[i].date);
+                            var Year = dateTobeProessed.getFullYear();
+                            var Month = dateTobeProessed.getMonth() + 1;
+                            var Day = dateTobeProessed.getDate();
+                            var convertedDate = new Date(Year, Month, Day);
+                            dataRows.push([convertedDate, historicdata[i].confirmed, historicdata[i].deaths, historicdata[i].recovered]);
+                        }
+                        console.log(dataRows);
+
+                        data.addRows(dataRows);
+                        var options = {
+                            chart: {
+                                title: 'Covid-19 Situation in US'
+                            },
+                            width: 900,
+                            height: 500
+                        };
+
+                        var chart = new google.charts.Bar(document.getElementById('bar_chart_us'));
+
+                        chart.draw(data, google.charts.Bar.convertOptions(options));
+
+
+                    })
+                    .fail(function () {
+                        alert("error");
+                    });
+            }
+
+            function drawLineChart() {
+                var dataTable = new google.visualization.DataTable();
+                dataTable.addColumn('date', 'Date');
+                dataTable.addColumn('number', 'Confirmed Cases in US');
+                dataTable.addColumn('number', 'Confirmed Cases in China');
+                $.ajax({
+                    type: "GET",
+                    url: "https://api.smartable.ai/coronavirus/stats/US",
+
+                    // Request headers
+                    beforeSend: function (xhrObj) {
+                        xhrObj.setRequestHeader("Cache-Control", "no-cache");
+                        xhrObj.setRequestHeader("Subscription-Key", "4b0c49b6a66c4777a54eb99935578a65");
+                    },
+                })
+                    .done(function (data) {
+                        var i;
+                        var historicdata = data.stats.history;
+                        var dataRows1 = [];
+                        for (i = historicdata.length - 7; i < historicdata.length; i++) {
+                            dataRows1.push(historicdata[i].confirmed);
+                        }
+                        $.ajax({
+                            type: "GET",
+                            url: "https://api.smartable.ai/coronavirus/stats/CN",
+
+                            // Request headers
+                            beforeSend: function (xhrObj) {
+                                xhrObj.setRequestHeader("Cache-Control", "no-cache");
+                                xhrObj.setRequestHeader("Subscription-Key", "4b0c49b6a66c4777a54eb99935578a65");
+                            },
+                        })
+                            .done(function (data) {
+                                var x;
+                                var historicdata = data.stats.history;
+                                var dataRows = [];
+                                var a = 0;
+                                for (x = historicdata.length - 7; x < historicdata.length; x++) {
+                                    var dateTobeProessed = new Date(historicdata[x].date);
+                                    var Year = dateTobeProessed.getFullYear();
+                                    var Month = dateTobeProessed.getMonth() + 1;
+                                    var Day = dateTobeProessed.getDate();
+                                    var convertedDate = new Date(Year, Month, Day);
+                                    dataRows.push([convertedDate, historicdata[x].confirmed, dataRows1[a]]);
+                                    a++;
+                                }
+                                dataTable.addRows(dataRows);
+                                var options = {
+                                    chart: {
+                                        title: 'Confirmaed Cases in US and China'
+                                    },
+                                    width: 900,
+                                    height: 500
+                                };
+
+                                var chart = new google.charts.Line(document.getElementById('line_chart_compare'));
+
+                                chart.draw(dataTable, google.charts.Line.convertOptions(options));
+
+                            })
+                            .fail(function () {
+                                alert("error");
+                            });
+
+                    })
+                    .fail(function () {
+                        alert("error");
+                    });
+            }
+        </script>
+

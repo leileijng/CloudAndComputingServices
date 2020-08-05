@@ -6,18 +6,14 @@ using System.Web.Mvc;
 
 namespace CSCAssignment1.Controllers
 {
+    [Authorize(Roles = "Premium,Free")]
     public class StripeController : Controller
     {
-        
         public ActionResult Account()
         {
             return View();
         }
         public ActionResult Prices()
-        {
-            return View();
-        }
-        public ActionResult Comment()
         {
             return View();
         }

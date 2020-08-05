@@ -12,6 +12,7 @@ namespace TLTTSaaSWebApp.APIs
 {
     public class DisqusController : ApiController
     {
+        [Authorize(Roles = "Premium,Free")]
         [HttpPost]
         [Route("api/disqus/createforum")]
         public async Task<IHttpActionResult> createForum(string id)

@@ -45,6 +45,7 @@ namespace TLTTSaaSWebApp.APIs
             }
         }
 
+        [Authorize]
         [HttpGet]
         [Route("api/Dynamo/RetrieveAccount")]
         public async Task<IHttpActionResult> GetAsync(string email)

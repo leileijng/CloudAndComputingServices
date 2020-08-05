@@ -15,6 +15,7 @@ namespace TLTTSaaSWebApp.Controllers
 
             return View();
         }
+        [Authorize(Roles = "Premium")]
         public ActionResult Details()
         {
             ViewBag.Title = "Talent's Detail";
@@ -24,6 +25,12 @@ namespace TLTTSaaSWebApp.Controllers
         public ActionResult Glacier()
         {
             ViewBag.Title = "Upload Archive";
+
+            return View();
+        }
+        public ActionResult Charts()
+        {
+            ViewBag.Title = "Charts";
 
             return View();
         }

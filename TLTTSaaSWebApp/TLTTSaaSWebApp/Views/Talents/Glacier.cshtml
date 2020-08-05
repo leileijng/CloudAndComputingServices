@@ -1,23 +1,166 @@
-﻿
+﻿<!--**********************************
+    Scripts
+***********************************-->
+<script src="~/plugins/common/common.min.js"></script>
+<script src="~/js/custom.min.js"></script>
+<script src="~/js/settings.js"></script>
+<script src="~/js/gleek.js"></script>
+<script src="~/js/styleSwitcher.js"></script>
 
+<!-- Chartjs -->
+<script src="~/plugins/chart.js/Chart.bundle.min.js"></script>
+<!-- Circle progress -->
+<script src="~/plugins/circle-progress/circle-progress.min.js"></script>
+<!-- Datamap -->
+<script src="~/plugins/d3v3/index.js"></script>
+<script src="~/plugins/topojson/topojson.min.js"></script>
+<script src="~/plugins/datamaps/datamaps.world.min.js"></script>
+<!-- Pignose Calender -->
+<script src="~/plugins/moment/moment.min.js"></script>
+<script src="~/plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+<!-- ChartistJS -->
+<script src="~/plugins/chartist/js/chartist.min.js"></script>
+<script src="~/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <h2>Glacier</h2>
-Filepath: <input type="file" id="filePath" />
-<button type="button" onclick="uploadArchive()">Submit</button>
+<div class="row">
+    Filepath: <input type="file" id="filePath" />
+    <button type="button" class="btn btn-primary" onclick="uploadArchive()">Submit</button>
+</div>
+<div id="bar_chart" style="width: 900px; height: 500px"></div>
+<div id="line_chart" style="width: 900px; height: 500px"></div>
+
+<style>
+    input[type="file"] {
+        display: inline-block;
+    }
+</style>
 <script>
     function uploadArchive() {
-        let fullPath = $('#filePath').val();
-        var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-        var filename = fullPath.substring(startIndex);
-        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
-            filename = filename.substring(1);
-        }
-        $.ajax({
-            type: 'POST',
-            url: `/api/Glacier/uploadArchive?filePath=${filename}`,
-        })
-        .done(function (data) {
-            console.log(data);
-        });
-    }
+        console.log(document.getElementById("filePath").files[0]); // list of File objects
 
+        var file = document.getElementById("filePath").files[0];
+        var reader = new FileReader();
+
+        // When the FileReader has loaded the file...
+        reader.onload = function () {
+
+            // Split the result to an array of lines
+            var lines = this.result.split('\n');
+
+            // Split the lines themselves by the specified
+            // delimiter, such as a comma
+            var result = lines.map(function (line) {
+                return line.split(",");
+            });
+
+            // As the FileReader reads asynchronously,
+            // we can't just return the result; instead,
+            // we're passing it to a callback function
+            callback(result, file.name);
+        };
+
+        // Read the file content as a single string
+        reader.readAsText(file);
+
+        //let fullPath = $('#filePath').val();
+        //var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+        //var filename = fullPath.substring(startIndex);
+        //if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+        //    filename = filename.substring(1);
+        //}
+        //$.ajax({
+        //    type: 'POST',
+        //    url: `/api/Glacier/uploadArchive?filePath=${filename}`,
+        //})
+        //    .done(function (data) {
+        //        console.log(data);
+        //    });
+    }
+    function callback(result, name) {
+        var sortedData = [['', '']];
+        var totalPrice = 0;
+        if (name == "Account.csv") {
+            let freeAcc = 0;
+            let premAcc = 0;
+            for (let x = 1; x < result.length - 1; x++) {
+                let record = result[x];
+                var dateTime = record[2];
+                var date = dateTime.split(" ");
+                date = date[0];
+                let newDate = date.split("/");
+                var convertedDate = new Date(newDate[2], newDate[1] - 1, newDate[0]);
+                console.log(convertedDate);
+                let price = parseFloat(record[3]);
+                if (price == 0) {
+                    freeAcc++;
+                } else {
+                    premAcc++;
+                }
+                if (sortedData[sortedData.length - 1][0] != convertedDate) {
+                    totalPrice += price;
+                    let newRec = [''];
+                    if (x != result.length - 2) {
+                        newRec = result[x + 1][2].split(" ");
+                    }
+                    console.log(newRec[0]);
+                    if (date != newRec[0] || x == result.length - 2) {
+                        sortedData.push([convertedDate, totalPrice])
+                        totalPrice = 0;
+                    }
+                } else {
+                    totalPrice += price;
+                    if (date != newRec[0] || x == result.length - 2) {
+                        sortedData.push([convertedDate, totalPrice])
+                        totalPrice = 0;
+                    }
+                }
+            }
+            console.log(sortedData);
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Account Type');
+            data.addColumn('number', 'Accounts');
+            let dataRows = [['Free', freeAcc], ['Premium', premAcc]];
+            data.addRows(dataRows);
+            var options = {
+                chart: {
+                    title: 'Free and Premium Account'
+                },
+                width: 900,
+                height: 500
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('bar_chart'));
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+
+            var dataTable1 = new google.visualization.DataTable();
+            dataTable1.addColumn('date', 'Date');
+            dataTable1.addColumn('number', 'New Subs Revenue ($)');
+            sortedData.shift();
+            dataTable1.addRows(sortedData);
+            var options1 = {
+                chart: {
+                    title: 'New Daily Subscription Revenue'
+                },
+                width: 900,
+                height: 500
+            };
+
+            var chart1 = new google.charts.Line(document.getElementById('line_chart'));
+
+            chart1.draw(dataTable1, google.charts.Line.convertOptions(options1));
+
+
+        } else if (name == "Talents.csv") {
+
+        }
+        return result;
+    }
+    $(document).ready(function () {
+        google.charts.load('current', { 'packages': ['bar'] });
+        google.charts.load('current', { 'packages': ['line'] });
+    });
 </script>
